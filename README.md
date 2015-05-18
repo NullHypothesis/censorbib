@@ -11,6 +11,7 @@ to turn the BibTeX file into an HTML bibliography.
 
 Then, run the following command to write the bibliography to `OUTPUT_DIR`.
 
+    $ ./fetch_pdfs.py references.bib OUTPUT_DIR
     $ bibliogra.py -H header.tpl -F footer.tpl -f references.bib OUTPUT_DIR
 
 Feedback
