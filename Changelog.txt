@@ -1,0 +1,170 @@
+* 2015-05-10
+	- Added paper ``Reverse-engineering censorship in China: Randomized experimentation and participant observation''
+	- Added paper ``Censorship Resistance as a Side-Effect''
+	- Added paper ``A Censorship-Resistant, Privacy-Enhancing and Fully Decentralized Name System''
+
+* 2015-05-09
+	- Added paper ``Anonymity and Censorship Resistance in Unstructured Overlay Networks''
+	- Added paper ``Characterizing Web Censorship Worldwide: Another Look at the OpenNet Initiative Data''
+	- Added paper ``GoHop: Personal VPN to Defend from Censorship''
+
+* 2015-04-21
+	- Added paper ``Internet Censorship detection: A survey'' (thanks, Antonio!)
+
+* 2015-03-19
+	- Fix broken links (thanks, David!)
+
+* 2015-03-03
+	- Added paper ``Monitoring Internet Censorship with UBICA'' (thanks, Antonio!)
+
+* 2014-12-04
+	- Added paper ``Dust: A Blocking-Resistant Internet Transport Protocol''
+	- Added paper ``Censorship in the Wild: Analyzing Internet Filtering in Syria''
+	- Added paper ``A Look at the Consequences of Internet Censorship Through an ISP Lens''
+	- Added paper ``Automated Detection and Fingerprinting of Censorship Block Pages''
+	- Added paper ``Facet: Streaming over Videoconferencing for Censorship Circumvention''
+
+* 2014-09-05
+	- Added paper ``LibFTE: A Toolkit for Constructing Practical, Format-Abiding Encryption Schemes''
+	- Added paper ``TapDance: End-to-Middle Anticensorship without Flow Blocking''
+	- Added paper ``Global Network Interference Detection over the RIPE Atlas Network''
+	- Added paper ``Towards a Comprehensive Picture of the Great Firewall's DNS Censorship''
+	- Added paper ``TRIST: Circumventing Censorship with Transcoding-Resistant Image Steganography''
+	- Added paper ``Facade: High-Throughput, Deniable Censorship Circumvention Using Web Search''
+	- Added paper ``Toward automatic censorship detection in microblogs''
+	- Added paper ``Gaining Insight into AS-level Outages through Analysis of Internet Background Radiation''
+
+* 2014-06-13
+	- Added paper ``Measuring Freenet in the Wild: Censorship-resilience under Observation''
+	- Added paper ``CloudTransport: Raising the Stakes in the Unobservability Game''
+
+* 2014-05-19
+	- Added paper ``Dimming the Internet: Detecting Throttling as a Mechanism of Censorship in Iran''
+	- Added paper ``VPN Gate: A Volunteer-Organized Public VPN Relay System with Blocking Resistance for Bypassing Government Censorship Firewalls''
+	- Added paper ``Tweeting Under Pressure: Analyzing Trending Topics and Evolving Word Choice on Sina Weibo''
+	- Added paper ``Adapting Social Spam Infrastructure for Political Censorship''
+	- Added paper ``On the Feasibility of a Censorship Resistant Decentralized Name System''
+
+* 2014-02-25
+	- Added paper ``Hold-On: Protecting Against On-Path DNS Poisoning''
+	- Added paper ``#h00t: Censorship Resistant Microblogging''
+	- Updated paper ``Message In A Bottle: Sailing Past Censorship''
+
+* 2014-01-09
+	- Added paper ``Detecting Intentional Packet Drops on the Internet via TCP/IP Side Channels''
+	- Added paper ``No Direction Home: The True Cost of Routing Around Decoys''
+
+* 2013-10-12
+	- Added paper ``Cover Your ACKs: Pitfalls of Covert Channel Censorship Circumvention''
+	- Added paper ``Protocol Misidentification Made Easy with Format-Transforming Encryption''
+
+* 2013-09-21
+	- Added paper ``A Method for Identifying and Confirming the Use of URL Filtering Products for Censorship''
+	- Added paper ``Revealing Middlebox Interference with Tracebox''
+
+* 2013-09-03
+	- Added paper ``ScrambleSuit: A Polymorphic Network Protocol to Circumvent Censorship''
+
+* 2013-08-20
+	- Added paper ``Building Dissent Networks: Towards Effective Countermeasures against Large-Scale Communications Blackouts''
+	- Added paper ``Towards a Censorship Analyser for Tor''
+	- Added paper ``Towards Illuminating a Censorship Monitor's Model to Facilitate Evasion''
+	- Added paper ``Internet Censorship in Iran: A First Look''
+	- Added paper ``The Anatomy of Web Censorship in Pakistan''
+	- Added paper ``Five Incidents, One Theme: Twitter Spam as a Weapon to Drown Voices of Protest''
+	- Added paper ``The Velocity of Censorship: High-Fidelity Detection of Microblog Post Deletions''
+
+* 2013-06-11
+	- Added paper ``Identity-Based Steganography and Its Applications to Censorship Resistance''
+	- Added paper ``SWEET: Serving the Web by Exploiting Email Tunnels''
+	- Added paper ``OSS: Using Online Scanning Services for Censorship Circumvention''
+
+* 2013-06-06
+	- Added paper ``Regional Variation in Chinese Internet Filtering'' (Thanks, Joss)
+
+* 2013-04-11
+	- Added paper ``How Censorship in China Allows Government Criticism but Silences Collective Expression'' (Thanks, Joss)
+
+* 2013-04-09
+	- Added paper ``The Eternity Service'' (Thanks, Joss)
+
+* 2013-04-05
+	- Added paper ``Extensive Analysis and Large-Scale Empirical Evaluation of Tor Bridge Discovery''
+	- Added paper ``Mapping Local Internet Control''
+
+* 2013-03-09
+	- Added paper ``The Parrot is Dead: Observing Unobservable Network Communications''
+
+* 2013-03-06
+	- Added paper ``Secure Communication over Diverse Transports''
+
+* 2013-01-03
+	- Added paper ``I want my voice to be heard: IP over Voice-over-IP for unobservable censorship circumvention''
+	- Added paper ``rBridge: User Reputation based Tor Bridge Distribution with Privacy Preservation''
+
+* 2012-12-14
+	- Added paper ``Anonymizing Censorship Resistant Systems''
+	- Added paper ``Dagster: Censorship-Resistant Publishing Without Replication''
+
+* 2012-11-12
+	- Added paper ``The Hidden Internet of Iran: Private Address Allocations on a National Network''
+
+* 2012-09-14
+	- Added paper ``Routing Around Decoys''
+	- Added paper ``StegoTorus: A Camouflage Proxy for the Tor Anonymity System''
+	- Added paper ``CensorSpoofer: Asymmetric Communication using IP Spoofing for Censorship-Resistant Web Browsing''
+	- Added paper ``SkypeMorph: Protocol Obfuscation for Tor Bridges''
+
+* 2012-08-27
+	- Added paper ``Detecting Forged TCP Reset Packets''
+	- Added paper ``How to Achieve Blocking Resistance for Existing Systems Enabling Anonymous Web Surfing'' (Thanks, Georg)
+
+* 2012-08-21
+	- Added paper ``Tor Instead of IP''
+
+* 2012-08-14
+	- Added paper ``Publius: A robust, tamper-evident, censorship-resistant web publishing system''
+	- Added paper ``Tangler: A Censorship-Resistant Publishing System Based On Document Entanglements''
+
+* 2012-08-08
+	- Added paper ``Whiskey, Weed, and Wukan on the World Wide Web: On Measuring Censors' Resources and Motivations''
+	- Added paper ``OONI: Open Observatory of Network Interference''
+	- Added paper ``Inferring Mechanics of Web Censorship Around the World''
+	- Added paper ``Bootstrapping Communications into an Anti-Censorship System''
+	- Added paper ``One-way indexing for plausible deniability in censorship resistant storage''
+	- Added paper ``How the Great Firewall of China is Blocking Tor''
+
+* 2012-07-23
+	- Added paper ``Fine-Grained Censorship Mapping: Information Sources, Legality and Ethics''
+	- Fixed links to FOCI'11 papers due to SSL warning
+
+* 2012-07-18
+	- Added paper ``The Collateral Damage of Internet Censorship by DNS Injection''
+
+* 2012-07-16
+	- Added page numbers for paper ``Evading Censorship with Browser-Based Proxies''
+	- Added paper ``Message In A Bottle: Sailing Past Censorship''
+
+* 2012-06-12
+	- Removed technical reports from 2012 since they are (probably) work-in-progress
+
+* 2012-06-06
+	- ``Evading Censorship with Browser-Based Proxies'' will be presented at PETS'12
+
+* 2012-05-26
+	- Added HTML anchors to make linking to specific papers easier
+	- Updated local copies
+
+* 2012-05-24
+	- Added paper ``Chipping Away at Censorship Firewalls with User-Generated Content''
+
+* 2012-05-04
+	- Added paper ``Fighting Censorship with Algorithms''
+	- Added paper ``Pass it on: Social Networks Stymie Censors''
+	- Added local copies for all papers
+
+* 2012-03-26
+	- Added paper ``Censorship Resistance Revisited''
+	- Added paper ``Proximax: A Measurement Based System for Proxies Dissemination''
+	- Added country to all BibTeX entries
+	- Added this Changelog
