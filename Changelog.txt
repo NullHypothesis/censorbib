@@ -1,3 +1,7 @@
+* 2015-05-24
+	- Added paper ``Blocking-resistant communication through domain fronting''
+	- Added paper ``Analyzing the Great Firewall of China Over Space and Time''
+
 * 2015-05-10
 	- Added paper ``Reverse-engineering censorship in China: Randomized experimentation and participant observation''
 	- Added paper ``Censorship Resistance as a Side-Effect''
