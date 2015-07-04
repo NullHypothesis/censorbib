@@ -72,7 +72,7 @@
       Sort by: (<a href="year_reverse.html">reverse</a>) <a href="year.html">year</a>,
       (<a href="author_reverse.html">reverse</a>) <a href="author.html">author</a> <br />
       Feedback: <a href="mailto:phw@nymity.ch">phw@nymity.ch</a> (<a
-      href="http://www.cs.kau.se/philwint/pk.asc">OpenPGP</a>) <br />
+      href="https://nymity.ch/~phw/pk.asc">OpenPGP</a>) <br />
       Last updated: <a href="Changelog.txt">2015-07-04</a> <br />
     </div>
   </div>
