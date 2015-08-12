@@ -1,4 +1,5 @@
 * 2015-08-12
+	- Added paper ``Marionette: A Programmable Network-Traffic Obfuscation System''
 	- Added paper ``Encore: Lightweight Measurement of Web Censorship with Cross-Origin Requests''
 
 * 2015-07-04
