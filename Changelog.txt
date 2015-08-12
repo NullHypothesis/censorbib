@@ -1,3 +1,6 @@
+* 2015-08-12
+	- Added paper ``Encore: Lightweight Measurement of Web Censorship with Cross-Origin Requests''
+
 * 2015-07-04
 	- Added paper ``Ethical Concerns for Censorship Measurement''
 	- Added paper ``Hiding Amongst the Clouds: A Proposal for Cloud-based Onion Routing''
