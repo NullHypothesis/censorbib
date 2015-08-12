@@ -1,4 +1,8 @@
 * 2015-08-12
+	- Added paper ``Understanding Internet Censorship Policy: The Case of Greece''
+	- Added paper ``Half Baked: The opportunity to secure cookie-based identifiers from passive surveillance''
+	- Added paper ``Every Rose Has Its Thorn: Censorship and Surveillance on Social Video Platforms in China''
+	- Added paper ``An Analysis of China's "Great Cannon"''
 	- Added paper ``Marionette: A Programmable Network-Traffic Obfuscation System''
 	- Added paper ``Encore: Lightweight Measurement of Web Censorship with Cross-Origin Requests''
 
