@@ -1,3 +1,8 @@
+* 2015-09-06
+	- Added paper ``Forgive Us our SYNs: Technical and Ethical Considerations for Measuring Internet Filtering''
+	- Added paper ``BridgeSPA: Improving Tor Bridges with Single Packet Authorization''
+	- Removed paper ``Half Baked: The opportunity to secure cookie-based identifiers from passive surveillance'' because there's not much connection to Internet censorship.
+
 * 2015-08-12
 	- Added paper ``Understanding Internet Censorship Policy: The Case of Greece''
 	- Added paper ``Half Baked: The opportunity to secure cookie-based identifiers from passive surveillance''
