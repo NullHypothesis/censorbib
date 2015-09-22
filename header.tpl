@@ -72,8 +72,8 @@
       Sort by: (<a href="year_reverse.html">reverse</a>) <a href="year.html">year</a>,
       (<a href="author_reverse.html">reverse</a>) <a href="author.html">author</a> <br />
       Feedback: <a href="mailto:phw@nymity.ch">phw@nymity.ch</a> (<a
-      href="https://nymity.ch/~phw/pk.asc">OpenPGP</a>) <br />
-      Last updated: <a href="Changelog.txt">2015-08-12</a> <br />
+      href="https://nymity.ch/openpgp_public_key.txt">OpenPGP</a>) <br />
+      Last updated: <a href="Changelog.txt">2015-09-06</a> <br />
     </div>
   </div>
 </div>
