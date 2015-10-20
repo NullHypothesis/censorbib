@@ -1,3 +1,7 @@
+* 2015-10-20
+	- Added paper ``CacheBrowser: Bypassing Chinese Censorship without Proxies Using Cached Content''
+	- Added paper ``Seeing through Network-Protocol Obfuscation''
+
 * 2015-09-06
 	- Added paper ``Forgive Us our SYNs: Technical and Ethical Considerations for Measuring Internet Filtering''
 	- Added paper ``BridgeSPA: Improving Tor Bridges with Single Packet Authorization''
