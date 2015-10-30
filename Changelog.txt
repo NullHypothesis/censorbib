@@ -1,3 +1,6 @@
+* 2015-10-30
+	- Added paper ``Examining How the {G}reat {F}irewall Discovers Hidden Circumvention Servers''
+
 * 2015-10-20
 	- Added paper ``CacheBrowser: Bypassing Chinese Censorship without Proxies Using Cached Content''
 	- Added paper ``Seeing through Network-Protocol Obfuscation''
