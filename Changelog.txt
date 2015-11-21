@@ -1,3 +1,7 @@
+* 2015-11-20
+	- Added paper ``Can Censorship Measurements Be Safe(r)?''
+	- Added paper ``A Case for Marrying Censorship Measurements with Circumvention''
+
 * 2015-11-05
 	- Added paper ``Rook: Using Video Games as a Low-Bandwidth Censorship Resistant Communication Platform''
 	- Added paper ``Known Unknowns: An Analysis of Twitter Censorship in Turkey''
