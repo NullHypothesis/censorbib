@@ -1,5 +1,6 @@
 * 2016-03-14
 	- Added paper ``Internet Censorship Circumvention Tools: Escaping the Control of the Syrian Regime''
+	- Added paper ``Algorithmically Bypassing Censorship on Sina Weibo with Nondeterministic Homophone Substitutions''
 
 * 2016-03-13
 	- Added paper ``SoK: Towards Grounding Censorship Circumvention in Empiricism''
