@@ -1,3 +1,6 @@
+* 2016-03-13
+	- Added paper ``SoK: Towards Grounding Censorship Circumvention in Empiricism''
+
 * 2015-11-20
 	- Added paper ``Can Censorship Measurements Be Safe(r)?''
 	- Added paper ``A Case for Marrying Censorship Measurements with Circumvention''
