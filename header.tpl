@@ -51,6 +51,10 @@
   .right {
     float: right;
   }
+  #oalogo {
+    float: left;
+    padding-left: 20px;
+  }
   </style>
 </head>
 
@@ -61,13 +65,19 @@
   <h1>Selected Research Papers in Internet Censorship</h1>
   </div>
   <div style="overflow:auto; margin:0 auto">
-    <div style="float:left; width:60%">
-      This is an archive of selected research papers in the field of
-      Internet censorship.  Papers behind a paywall are
-      <a href="http://thecostofknowledge.com/">worthless</a>
-      <a href="http://www.researchwithoutwalls.org/">papers</a>, which is why
-      all papers on this page are freely available.
+    <div style="float:left; width:40%; text-align:justify">
+      This is an online archive of selected research papers in the field of
+      Internet censorship.  Papers behind paywalls are of greatly
+      <a href="http://thecostofknowledge.com/">diminished</a>
+      <a href="http://www.researchwithoutwalls.org/">use</a>
+      because they are inaccessible to everyone who is not lucky enough
+      to be affiliated with a wealthy university.  This is problematic from
+      both a scientific and a moral point of view.  Therefore, all research
+      papers here are openly accessible.
     </div>
+    <a href="https://en.wikipedia.org/wiki/Open_access">
+    <img alt="Open Access logo" id="oalogo" src="open-access.png"/>
+    </a>
     <div style="text-align:right">
       Sort by: (<a href="year_reverse.html">reverse</a>) <a href="year.html">year</a>,
       (<a href="author_reverse.html">reverse</a>) <a href="author.html">author</a> <br />
