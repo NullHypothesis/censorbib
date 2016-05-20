@@ -1,3 +1,7 @@
+* 2016-05-20
+	- Added paper ``Mailet: Instant Social Networking under Censorship''
+	- Added paper ``CovertCast: Using Live Streaming to Evade Internet Censorship''
+
 * 2016-03-22
 	- Added paper ``SkypeLine: Robust Hidden Data Transmission for VoIP''
 
