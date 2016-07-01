@@ -1,3 +1,6 @@
+* 2016-07-01
+	- Added paper ``Leveraging Internet Services to Evade Censorship'' (thanks, David!)
+
 * 2016-06-02
 	- Added paper ``Games Without Frontiers: Investigating Video Games as a Covert Channel''
 
