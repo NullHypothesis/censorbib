@@ -1,5 +1,6 @@
 * 2016-07-01
 	- Added paper ``Leveraging Internet Services to Evade Censorship'' (thanks, David!)
+	- Added missing author to paper ``An Analysis of China's "Great Cannon"''
 
 * 2016-06-02
 	- Added paper ``Games Without Frontiers: Investigating Video Games as a Covert Channel''
