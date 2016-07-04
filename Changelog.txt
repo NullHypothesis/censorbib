@@ -1,3 +1,6 @@
+* 2016-07-04
+	- Added paper ``Analyzing Internet Censorship in Pakistan'' (thanks, Antonio!)
+
 * 2016-07-01
 	- Added paper ``Leveraging Internet Services to Evade Censorship'' (thanks, David!)
 	- Added missing author to paper ``An Analysis of China's "Great Cannon"''
