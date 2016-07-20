@@ -1,3 +1,8 @@
+* 2016-07-20
+	- Added paper ``A Framework for the Game-theoretic Analysis of Censorship Resistance''
+	- Added paper ``SoK: Making Sense of Censorship Resistance Systems''
+	- Added paper ``Salmon: Robust Proxy Distribution for Censorship Circumvention''
+
 * 2016-07-06
 	- Added paper ``Satellite: Joint Analysis of CDNs and Network-Level Interference''
 
