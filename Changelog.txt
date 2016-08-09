@@ -1,3 +1,10 @@
+* 2016-08-09
+	- Added paper ``DNS-sly: Avoiding Censorship through Network Complexity''
+	- Added paper ``Matryoshka: Hiding Secret Communication in Plain Sight''
+	- Added paper ``GhostPost: Seamless Restoration of Censored Social Media Posts''
+	- Added paper ``Censors' Delay in Blocking Circumvention Proxies''
+	- Added paper ``The Politics of Routing: Investigating the Relationship Between AS Connectivity and Internet Freedom''
+
 * 2016-07-20
 	- Added paper ``A Framework for the Game-theoretic Analysis of Censorship Resistance''
 	- Added paper ``SoK: Making Sense of Censorship Resistance Systems''
