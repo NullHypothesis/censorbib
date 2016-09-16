@@ -1,3 +1,8 @@
+* 2016-09-16
+	- Added paper ``Slitheen: Perfectly Imitated Decoy Routing through Traffic Replacement''
+	- Added paper ``Game of Decoys: Optimal Decoy Routing Through Game Theory''
+	- Added paper ``Practical Censorship Evasion Leveraging Content Delivery Networks''
+
 * 2016-08-09
 	- Added paper ``DNS-sly: Avoiding Censorship through Network Complexity''
 	- Added paper ``Matryoshka: Hiding Secret Communication in Plain Sight''
