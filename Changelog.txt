@@ -1,3 +1,6 @@
+* 2016-11-02
+	- Added paper ``Government mandated blocking of foreign Web content'' (thanks, David!)
+
 * 2016-10-28
 	- Added paper ``Poisoning the Well - Exploring the Great Firewall's Poisoned DNS Responses''
 

@@ -83,7 +83,7 @@
       (<a href="author_reverse.html">reverse</a>) <a href="author.html">author</a> <br />
       Feedback: <a href="mailto:phw@nymity.ch">phw@nymity.ch</a> (<a
       href="https://nymity.ch/openpgp_public_key.txt">OpenPGP</a>) <br />
-      Last updated: <a href="Changelog.txt">2016-10-28</a> <br />
+      Last updated: <a href="Changelog.txt">2016-11-02</a> <br />
     </div>
   </div>
 </div>
