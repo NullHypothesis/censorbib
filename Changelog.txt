@@ -1,3 +1,6 @@
+* 2017-01-21
+	- Added paper ``Dissecting Tor Bridges: a Security Evaluation of Their Private and Public Infrastructures''
+
 * 2016-11-02
 	- Added paper ``Government mandated blocking of foreign Web content'' (thanks, David!)
 
