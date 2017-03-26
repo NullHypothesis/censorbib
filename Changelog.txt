@@ -1,3 +1,8 @@
+* 2017-03-26
+	- Added paper ``Internet Censorship in Thailand: User Practices and Potential Threats''
+	- Added paper ``Investigating large-scale Internet content filtering''
+	- Added paper ``A terminology for talking about privacy by data minimization: Anonymity, Unlinkability, Undetectability, Unobservability, Pseudonymity, and Identity Management''
+
 * 2017-01-21
 	- Added paper ``Dissecting Tor Bridges: a Security Evaluation of Their Private and Public Infrastructures''
 
