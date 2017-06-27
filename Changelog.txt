@@ -1,3 +1,8 @@
+* 2017-06-27
+	- Added paper ``A Usability Evaluation of Tor Launcher''
+	- Added paper ``DeltaShaper: Enabling Unobservable Censorship-resistant TCP Tunneling over Videoconferencing Streams''
+	- Added paper ``Topics of Controversy: An Empirical Analysis of Web Censorship Lists''
+
 * 2017-05-22
 	- Added paper ``Augur: Internet-Wide Detection of Connectivity Disruptions''
 
