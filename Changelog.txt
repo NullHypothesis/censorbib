@@ -1,3 +1,9 @@
+* 2017-08-21
+	- Added paper ``Measuring Decentralization of Chinese Keyword Censorship via Mobile Games''
+	- Added paper ``The Decline of Social Media Censorship and the Rise of Self-Censorship after the 2016 Failed Turkish Coup''
+	- Added paper ``Autosonda: Discovering Rules and Triggers of Censorship Devices''
+	- Added paper ``An ISP-Scale Deployment of TapDance''
+
 * 2017-06-27
 	- Added paper ``A Usability Evaluation of Tor Launcher''
 	- Added paper ``DeltaShaper: Enabling Unobservable Censorship-resistant TCP Tunneling over Videoconferencing Streams''
