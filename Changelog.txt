@@ -1,3 +1,6 @@
+* 2017-08-28
+	- Added paper ``FilteredWeb: A Framework for the Automated Search-Based Discovery of Blocked URLs''
+
 * 2017-08-21
 	- Added paper ``Measuring Decentralization of Chinese Keyword Censorship via Mobile Games''
 	- Added paper ``The Decline of Social Media Censorship and the Rise of Self-Censorship after the 2016 Failed Turkish Coup''
