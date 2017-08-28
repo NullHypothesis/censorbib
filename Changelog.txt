@@ -1,6 +1,7 @@
 * 2017-08-28
 	- Added paper ``FilteredWeb: A Framework for the Automated Search-Based Discovery of Blocked URLs''
 	- Updated paper ``Government mandated blocking of foreign Web content''
+	- Updated paper ``Whiskey, Weed, and Wukan on the World Wide Web: On Measuring Censors' Resources and Motivations''
 
 * 2017-08-21
 	- Added paper ``Measuring Decentralization of Chinese Keyword Censorship via Mobile Games''
