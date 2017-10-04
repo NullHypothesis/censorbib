@@ -1,5 +1,6 @@
 * 2017-10-17
 	- Updated paper ``Anonymizing Censorship Resistant Systems''
+	- Updated paper ``Fighting Censorship with Algorithms''
 
 * 2017-10-13
 	- Added an onion site for CensorBib.
