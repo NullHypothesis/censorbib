@@ -1,3 +1,6 @@
+* 2017-10-13
+	- Added an onion site for CensorBib.
+
 * 2017-10-05
 	- Added paper ``Characterizing the Nature and Dynamics of Tor Exit Blocking''
 	- Added paper ``Global Measurement of DNS Manipulation''
