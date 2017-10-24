@@ -1,3 +1,6 @@
+* 2017-10-24
+	- Added paper ``When the Internet Goes Down in Bangladesh''
+
 * 2017-10-17
 	- Updated paper ``Anonymizing Censorship Resistant Systems''
 	- Updated paper ``Fighting Censorship with Algorithms''
