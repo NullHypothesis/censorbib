@@ -1,3 +1,6 @@
+* 2017-10-30
+	- Updated paper ``StegoTorus: A Camouflage Proxy for the Tor Anonymity System''
+
 * 2017-10-29
 	- Added paper ``lib•erate, (n): A library for exposing (traffic-classification) rules and avoiding them efficiently''
 	- Added paper ``Your State is Not Mine: A Closer Look at Evading Stateful Internet Censorship''
