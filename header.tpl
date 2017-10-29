@@ -84,7 +84,8 @@
       Feedback: <a href="mailto:phw@nymity.ch">phw@nymity.ch</a> (<a
       href="https://nymity.ch/openpgp_public_key.txt">OpenPGP</a>) <br />
       Last updated: <a href="Changelog.txt">2017-10-29</a> <br />
-      Onion site: <a href="http://3wcwjjnuvjyazeza.onion">3wcwjjnuvjyazeza.onion</a>
+      Onion site: <a href="http://3wcwjjnuvjyazeza.onion">3wcwjjnuvjyazeza.onion</a> <br />
+      Code: <a href="https://github.com/NullHypothesis/censorbib">GitHub</a>
     </div>
   </div>
 </div>
