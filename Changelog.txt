@@ -1,3 +1,6 @@
+* 2017-10-31
+	- Updated paper ``Games Without Frontiers: Investigating Video Games as a Covert Channel''
+
 * 2017-10-30
 	- Updated paper ``StegoTorus: A Camouflage Proxy for the Tor Anonymity System''
 	- Added paper ``On the risks of serving whenever you surf: Vulnerabilities in Tor's blocking resistance design''
