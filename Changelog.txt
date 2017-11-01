@@ -1,6 +1,7 @@
 * 2017-10-31
 	- Updated paper ``Games Without Frontiers: Investigating Video Games as a Covert Channel''
 	- Updated paper ``Tweeting Under Pressure: Analyzing Trending Topics and Evolving Word Choice on Sina Weibo''
+	- Updated paper ``The Great DNS Wall of China''
 
 * 2017-10-30
 	- Updated paper ``StegoTorus: A Camouflage Proxy for the Tor Anonymity System''
