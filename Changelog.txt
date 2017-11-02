@@ -1,3 +1,6 @@
+* 2017-11-02
+	- Added paper ``The Waterfall of Liberty: Decoy Routing Circumvention that Resists Routing Attacks''
+
 * 2017-10-31
 	- Updated paper ``Games Without Frontiers: Investigating Video Games as a Covert Channel''
 	- Updated paper ``Tweeting Under Pressure: Analyzing Trending Topics and Evolving Word Choice on Sina Weibo''
