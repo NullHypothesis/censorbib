@@ -1,3 +1,6 @@
+* 2017-11-14
+	- Updated paper ``Analysis of Country-wide Internet Outages Caused by Censorship''
+
 * 2017-11-02
 	- Added paper ``The Waterfall of Liberty: Decoy Routing Circumvention that Resists Routing Attacks''
 
