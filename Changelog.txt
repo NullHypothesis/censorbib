@@ -1,3 +1,6 @@
+* 2017-12-01
+	- Added paper ``Self-Censorship on Facebook''
+
 * 2017-11-14
 	- Updated paper ``Analysis of Country-wide Internet Outages Caused by Censorship''
 
