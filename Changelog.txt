@@ -2,6 +2,7 @@
 	- Updated paper ``Hiding Amongst the Clouds: A Proposal for Cloud-based Onion Routing''
 	- Updated paper ``Rebound: Decoy Routing on Asymmetric Routes Via Error Messages''
 	- Updated paper ``Forgive Us our SYNs: Technical and Ethical Considerations for Measuring Internet Filtering''
+	- Updated paper ``An ISP-Scale Deployment of TapDance''
 
 * 2017-12-01
 	- Added paper ``Self-Censorship on Facebook''
