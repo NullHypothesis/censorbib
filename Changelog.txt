@@ -1,5 +1,6 @@
 * 2017-12-14
 	- Updated paper ``Hiding Amongst the Clouds: A Proposal for Cloud-based Onion Routing''
+	- Updated paper ``Rebound: Decoy Routing on Asymmetric Routes Via Error Messages''
 
 * 2017-12-01
 	- Added paper ``Self-Censorship on Facebook''
