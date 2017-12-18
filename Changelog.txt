@@ -1,3 +1,6 @@
+* 2017-12-17
+	- Added paper ``A Churn for the Better: Localizing Censorship using Network-level Path Churn and Network Tomography''
+
 * 2017-12-14
 	- Updated paper ``Hiding Amongst the Clouds: A Proposal for Cloud-based Onion Routing''
 	- Updated paper ``Rebound: Decoy Routing on Asymmetric Routes Via Error Messages''
