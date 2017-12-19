@@ -1,3 +1,6 @@
+* 2017-12-19
+	- Added paper ``Accessing Google Scholar under Extreme Internet Censorship: A Legal Avenue''
+
 * 2017-12-17
 	- Added paper ``A Churn for the Better: Localizing Censorship using Network-level Path Churn and Network Tomography''
 
