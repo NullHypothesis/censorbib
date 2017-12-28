@@ -1,3 +1,6 @@
+* 2018-07-25
+	- Updated paper ``SkypeMorph: Protocol Obfuscation for Tor Bridges''
+
 * 2018-07-17
 	- Added paper ``Alibi Routing'' (thanks, Dave!)
 	- Added paper ``DeTor: Provably Avoiding Geographic Regions in Tor'' (thanks, Dave!)
