@@ -1,3 +1,6 @@
+* 2018-01-04
+	- Added paper ``Online Advertising under Internet Censorship''
+
 * 2017-12-19
 	- Added paper ``Accessing Google Scholar under Extreme Internet Censorship: A Legal Avenue''
 	- Added paper ``Internet Censorship Capabilities in Cyprus: An Investigation of Online Gambling Blocklisting''
