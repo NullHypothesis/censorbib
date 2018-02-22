@@ -1,3 +1,6 @@
+* 2018-02-22
+	- Added paper ``Proof-of-Censorship: Enabling centralized censorship-resistant content providers''
+
 * 2018-01-04
 	- Added paper ``Online Advertising under Internet Censorship''
 
