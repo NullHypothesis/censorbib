@@ -1,5 +1,6 @@
 * 2018-04-30
 	- Updated paper ``Gaining Insight into AS-level Outages through Analysis of Internet Background Radiation''
+	- Updated paper ``Internet Censorship detection: A survey''
 
 * 2018-04-27
 	- Added paper ``No Encore for Encore? Ethical questions for web-based censorship measurement''
