@@ -1,3 +1,6 @@
+* 2018-07-12
+	- Added paper ``Detecting Censorable Content on Sina Weibo: A Pilot Study''
+
 * 2018-04-30
 	- Updated paper ``Gaining Insight into AS-level Outages through Analysis of Internet Background Radiation''
 	- Updated paper ``Internet Censorship detection: A survey''
