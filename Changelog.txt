@@ -1,5 +1,6 @@
 * 2018-07-25
 	- Updated paper ``SkypeMorph: Protocol Obfuscation for Tor Bridges''
+	- Added paper ``How Sudden Censorship Can Increase Access to Information''
 
 * 2018-07-17
 	- Added paper ``Alibi Routing'' (thanks, Dave!)
