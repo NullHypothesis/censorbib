@@ -4,6 +4,7 @@
 	- Added paper ``An analysis of automatic image filtering on WeChat Moments''
 	- Added paper ``A Bestiary of Blocking: The Motivations and Modes behind Website Unavailability''
 	- Added paper ``Automatically Generating a Large, Culture-Specific Blocklist for China''
+	- Added paper ``Incentivizing Censorship Measurements via Circumvention''
 
 * 2018-07-25
 	- Updated paper ``SkypeMorph: Protocol Obfuscation for Tor Bridges''
