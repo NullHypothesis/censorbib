@@ -1,3 +1,7 @@
+* 2018-08-21
+	- Added paper ``Effective Detection of Multimedia Protocol Tunneling using Machine Learning''
+	- Added paper ``Quack: Scalable Remote Measurement of Application-Layer Censorship''
+
 * 2018-08-20
 	- Added paper ``Analyzing China's Blocking of Unpublished Tor Bridges''
 	- Added paper ``MultiFlow: Cross-Connection Decoy Routing using TLS 1.3 Session Resumption''
