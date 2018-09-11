@@ -55,6 +55,9 @@
     float: left;
     padding-left: 20px;
   }
+  body {
+    font-family:Helvetica,sans-serif;
+  }
   </style>
 </head>
 
