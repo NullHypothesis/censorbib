@@ -86,7 +86,7 @@
       (<a href="author_reverse.html">reverse</a>) <a href="author.html">author</a> <br />
       Feedback: <a href="mailto:phw@nymity.ch">phw@nymity.ch</a> (<a
       href="https://nymity.ch/openpgp_public_key.txt">OpenPGP</a>) <br />
-      Last updated: <a href="https://github.com/NullHypothesis/censorbib/commits/master">2018-09-24</a> <br />
+      Last updated: <a href="https://github.com/NullHypothesis/censorbib/commits/master">2018-09-29</a> <br />
       Onion site: <a href="http://3wcwjjnuvjyazeza.onion">3wcwjjnuvjyazeza.onion</a> <br />
       Code: <a href="https://github.com/NullHypothesis/censorbib">GitHub</a>
     </div>
