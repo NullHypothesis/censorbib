@@ -4,91 +4,183 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-  <title>CensorBib</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The Internet censorship bibliography</title>
   <style type="text/css">
+  body {
+    font-family: Roboto,Helvetica,sans-serif;
+    background: #e7e7e7;
+    margin-left: 40px;
+    margin-top: 20px;
+    margin-right: 40px;
+  }
   li {
     margin-top: 1em;
     margin-bottom: 1em;
-  }
-  .paper {
-    font-weight:bold;
-  }
-  .venue {
-    font-style:italic;
+    margin-right: 1em;
   }
   h1 {
-    font-size:25px;
-  }
-  h2 {
-    font-size:18px;
-  }
-  hr {
-    background-color:#aaa;
-    height:1px;
-    border:0 none;
+    font-size: 25px;
+    color: #eee;
+    width: 80%;
+    float: left;
   }
   ul {
-    border:3px solid #a65f00;
-    background:#ffc373;
-    margin-left:40px;
-    margin-right:40px;
+    border-radius: 10px;
+    border:1px solid #c0c0c0;
+    background:white;
+    box-shadow: 2px 2px 5px #bbb;
+  }
+  ul.a {
+    list-style-image: url('donate-icon.svg');
   }
   a:link {
-    color:#033e6b;
+    color:#0b61a4;
     text-decoration:none;
   }
   a:visited {
-    color:#0b61a4;
+    color:#033e6b;
     text-decoration:none;
   }
   a:hover {
     text-decoration:underline;
   }
-  .left {
-    float: left;
+  p {
+    margin: 0px;
   }
-  .right {
-    float: right;
+  .author {
+    color: #666;
+  }
+  .venue {
+    font-style: italic;
+  }
+  .paper {
+    font-weight: bold;
+  }
+  .other {
+    color: #666;
+  }
+  #header {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #c0c0c0;
+    text-align: justify;
+    overflow: hidden;
+    box-shadow: 2px 2px 5px #bbb;
+  }
+  #header-top {
+    text-align: center;
+    background: #333;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #c0c0c0;
+    overflow: auto;
+  }
+  #header-left {
+    float: left;
+    width: 70%;
+    padding: 20px;
+  }
+  #header-right {
+    float: left;
+    padding: 20px;
+    font-size: 14px;
+  }
+  .header-right img {
+    height: 100%;
+  }
+  #header-bottom {
+    text-align: center;
+    padding-bottom: 20px;
   }
   #oalogo {
     float: left;
     padding-left: 20px;
+    height: 100px;
   }
-  body {
-    font-family:Helvetica,sans-serif;
+  #footer {
+    text-align: center;
+    line-height: 20px;
+  }
+  .icon {
+    height: 1em;
+    margin-right: 0.5em;
+  }
+  .icons {
+    float: right;
+  }
+  .top-icon {
+    height: 1em;
+    width: 1em;
+    position: relative;
+    vertical-align: middle;
+    margin-left: 1em;
+  }
+  .menu-item {
+    padding-bottom: 5px;
+  }
+  #openaccess-logo {
+    float: left;
+    height: 4em;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+  .url {
+    font-family: monospace;
+    font-size: 12px;
+  }
+  :target {
+    background-color: #f6ba81;
   }
   </style>
 </head>
 
 <body>
 
-<div style="margin-left:40px; margin-right:40px; ">
-  <div style="text-align:center">
-  <h1>Selected Research Papers in Internet Censorship</h1>
-  </div>
-  <div style="overflow:auto; margin:0 auto">
-    <div style="float:left; width:40%; text-align:justify">
-      This is an online archive of selected research papers in the field of
-      Internet censorship.  Papers behind paywalls are of greatly
-      <a href="http://thecostofknowledge.com/">diminished</a>
-      <a href="http://www.researchwithoutwalls.org/">use</a>
-      because they are inaccessible to everyone who is not lucky enough
-      to be affiliated with a wealthy university.  This is problematic from
-      both a scientific and a moral point of view.  Therefore, all research
-      papers here are openly accessible.
+  <div id="header">
+
+    <div id="header-top">
+      <h1>Selected Research Papers in Internet Censorship</h1>
+      <a href="https://en.wikipedia.org/wiki/Open_access">
+        <img id="openaccess-logo" src="open-access.svg" alt="open access logo"/>
+      </a>
     </div>
-    <a href="https://en.wikipedia.org/wiki/Open_access">
-    <img alt="Open Access logo" id="oalogo" src="open-access.png"/>
-    </a>
-    <div style="text-align:right">
-      Sort by: (<a href="year_reverse.html">reverse</a>) <a href="year.html">year</a>,
-      (<a href="author_reverse.html">reverse</a>) <a href="author.html">author</a> <br />
-      Feedback: <a href="mailto:phw@nymity.ch">phw@nymity.ch</a> (<a
-      href="https://nymity.ch/openpgp_public_key.txt">OpenPGP</a>) <br />
-      Last updated: <a href="https://github.com/NullHypothesis/censorbib/commits/master">2019-11-21</a> <br />
-      Onion site: <a href="http://3wcwjjnuvjyazeza.onion">3wcwjjnuvjyazeza.onion</a> <br />
-      Code: <a href="https://github.com/NullHypothesis/censorbib">GitHub</a>
+
+    <div id="header-left">
+      <p>
+        CensorBib is an online archive of selected research papers in the field
+        of Internet censorship.  Most papers on CensorBib approach the topic
+        from a technical angle, by proposing designs that circumvent censorship
+        systems, or by measuring how censorship works.  The icons next to each
+        paper make it easy to download, cite, and link to papers.  If you think
+        I missed a paper,
+        <a href="https://nymity.ch/contact.txt">let me know</a>.
+        Finally, you can sort papers by
+        <a href="year.html">year</a>,
+        <a href="year_reverse.html">reverse year</a> (default),
+        <a href="author.html">author</a>, and
+        <a href="author_reverse.html">reverse author</a>.
+
+      </p>
     </div>
+
+    <div id="header-right">
+      <div class="menu-item">
+        <img class="top-icon" src="img/lock-icon.svg" alt="onion service icon"/>
+        <a href="http://3wcwjjnuvjyazeza.onion">Onion service mirror</a>
+      </div>
+      <div class="menu-item">
+        <img class="top-icon" src="img/code-icon.svg" alt="source code icon"/>
+        <a href="https://github.com/NullHypothesis/censorbib">CensorBib code</a>
+      </div>
+      <div class="menu-item">
+        <img class="top-icon" src="img/update-icon.svg" alt="update icon"/>
+        <a href="https://github.com/NullHypothesis/censorbib/commits/master">Last update: 2019-12-14</a>
+      </div>
+      <div class="menu-item">
+        <img class="top-icon" src="img/donate-icon.svg" alt="donate icon"/>
+        <a href="https://nymity.ch/donate.html">Donate</a>
+      </div>
+    </div>
+
   </div>
-</div>
