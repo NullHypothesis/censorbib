@@ -10,9 +10,10 @@
   body {
     font-family: Roboto,Helvetica,sans-serif;
     background: #e7e7e7;
-    margin-left: 40px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 20px;
-    margin-right: 40px;
+    max-width: 1000px;
   }
   li {
     margin-top: 1em;
@@ -78,12 +79,13 @@
   }
   #header-left {
     float: left;
-    width: 70%;
+    width: 75%;
     padding: 20px;
   }
   #header-right {
-    float: left;
+    float: right;
     padding: 20px;
+    padding-left: 0px;
     font-size: 14px;
   }
   .header-right img {
@@ -120,10 +122,10 @@
     padding-bottom: 5px;
   }
   #openaccess-logo {
-    float: left;
+    float: right;
     height: 4em;
     vertical-align: middle;
-    padding-right: 10px;
+    padding-right: 20px;
   }
   .url {
     font-family: monospace;
