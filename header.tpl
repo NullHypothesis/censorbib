@@ -6,6 +6,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>The Internet censorship bibliography</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <style type="text/css">
   body {
     font-family: Roboto,Helvetica,sans-serif;
