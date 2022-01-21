@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright 2015 Philipp Winter <phw@nymity.ch>
 #
@@ -21,7 +21,7 @@ Fetch pdf and ps files in BibTeX file.
 import os
 import sys
 import errno
-import urllib2
+import urllib.request
 
 import pybtex.database.input.bibtex as bibtex
 
@@ -31,15 +31,15 @@ def download_pdf(url, file_name):
     Download file and write it to given file name.
     """
 
-    print "Now fetching %s" % url
+    print("Now fetching %s" % url)
 
     try:
-        fetched_file = urllib2.urlopen(url)
+        fetched_file = urllib.request.urlopen(url)
     except Exception as err:
-        print >> sys.stderr, err
+        print(err, file=sys.stderr)
         return
 
-    with open(file_name, "w") as fd:
+    with open(file_name, "wb") as fd:
         fd.write(fetched_file.read())
 
 
@@ -78,14 +78,14 @@ def main(file_name, output_dir):
             ext = ext[1:]
 
         if ext not in ["pdf", "ps"]:
-            print >> sys.stderr, ("Skipping %s because it's not a pdf "
-                                  "or ps file." % url)
+            print("Skipping %s because it's not a pdf or ps file." % url,
+                  file=sys.stderr)
             continue
 
         file_name = os.path.join(output_dir, ext, bibkey + ".%s" % ext)
         if os.path.exists(file_name):
-            print >> sys.stderr, ("Skipping %s because we already "
-                                  "have it." % file_name)
+            print("Skipping %s because we already have it." % file_name,
+                  file=sys.stderr)
             continue
 
         download_pdf(url, file_name)
@@ -96,7 +96,8 @@ def main(file_name, output_dir):
 if __name__ == "__main__":
 
     if len(sys.argv) != 3:
-        print >> sys.stderr, "\nUsage: %s FILE_NAME OUTPUT_DIR\n" % sys.argv[0]
+        print("\nUsage: %s FILE_NAME OUTPUT_DIR\n" % sys.argv[0],
+              file=sys.stderr)
         sys.exit(1)
 
     sys.exit(main(sys.argv[1], sys.argv[2]))
