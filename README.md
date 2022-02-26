@@ -17,8 +17,8 @@ Then, run the following commands to write the bibliography to `OUTPUT_DIR`.
 Acknowledgements
 ----------------
 
-CensorBib uses [Font Awesome](https://fontawesome.com/license) icons without
-modification.
+CensorBib uses [Font Awesome](https://fontawesome.com/license/free) icons
+without modification.
 
 Feedback
 --------
