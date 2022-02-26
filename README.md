@@ -1,7 +1,8 @@
 Overview
 --------
-This repository contains the BibTeX file and HTML templates that are used to
-create the [Internet censorship bibliography](http://censorbib.nymity.ch).
+
+This repository contains the BibTeX file and HTML templates that form the
+[Internet Censorship Bibliography](https://censorbib.nymity.ch).
 
 Build it
 --------
