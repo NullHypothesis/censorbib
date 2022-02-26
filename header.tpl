@@ -172,7 +172,7 @@
     <div id="header-right">
       <div class="menu-item">
         <img class="top-icon" src="img/lock-icon.svg" alt="onion service icon"/>
-        <a href="http://3wcwjjnuvjyazeza.onion">Onion service mirror</a>
+        <a href="http://putnst3yv7k6vvb3avdqgdutrz3kaufitaiwbjhjox7o3daakr43fhad.onion">Onion service mirror</a>
       </div>
       <div class="menu-item">
         <img class="top-icon" src="img/code-icon.svg" alt="source code icon"/>
