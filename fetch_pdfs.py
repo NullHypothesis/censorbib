@@ -34,7 +34,8 @@ def download_pdf(url, file_name):
     print("Now fetching %s" % url)
 
     try:
-        fetched_file = urllib.request.urlopen(url)
+        req = urllib.request.Request(url, headers={'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36"})
+        fetched_file = urllib.request.urlopen(req)
     except Exception as err:
         print(url, err, file=sys.stderr)
         return
