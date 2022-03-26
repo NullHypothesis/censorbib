@@ -36,7 +36,7 @@ def download_pdf(url, file_name):
     try:
         fetched_file = urllib.request.urlopen(url)
     except Exception as err:
-        print(err, file=sys.stderr)
+        print(url, err, file=sys.stderr)
         return
 
     with open(file_name, "wb") as fd:
