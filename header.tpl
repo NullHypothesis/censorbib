@@ -181,7 +181,7 @@
       <div class="menu-item">
         <img class="top-icon" src="img/update-icon.svg" alt="update icon"/>
         <a
-        href="https://github.com/NullHypothesis/censorbib/commits/master">Last update: 2022-06-27</a>
+        href="https://github.com/NullHypothesis/censorbib/commits/master">Last update: 2022-07-15</a>
       </div>
       <div class="menu-item">
         <img class="top-icon" src="img/donate-icon.svg" alt="donate icon"/>
