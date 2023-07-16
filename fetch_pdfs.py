@@ -79,14 +79,10 @@ def main(file_name, output_dir):
             ext = ext[1:]
 
         if ext not in ["pdf", "ps"]:
-            print("Skipping %s because it's not a pdf or ps file." % url,
-                  file=sys.stderr)
             continue
 
         file_name = os.path.join(output_dir, ext, bibkey + ".%s" % ext)
         if os.path.exists(file_name):
-            print("Skipping %s because we already have it." % file_name,
-                  file=sys.stderr)
             continue
 
         download_pdf(url, file_name)
