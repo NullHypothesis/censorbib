@@ -11,11 +11,13 @@ jobs:
 
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
-          mkdir -p docs
+          mkdir build
           go build -C src -o ../compiler
-          ./compiler -path references.bib > docs/index.html
+          # Move image assets.
+          cp -r img build
+          ./compiler -path references.bib > build/index.html
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: docs # The folder the action should deploy.
+          folder: build # The folder the action should deploy.
