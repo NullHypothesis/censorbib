@@ -126,7 +126,7 @@ const headerTemplate = `
   }
   #title-box {
     text-align: center;
-    background: #333 url('open-access.svg') right/25% no-repeat;
+    background: #333 url('assets/open-access.svg') right/25% no-repeat;
   }
   #censorbib-description {
     padding: 1em;
