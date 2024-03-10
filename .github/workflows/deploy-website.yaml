@@ -1,0 +1,29 @@
+name: Deploy website
+on:
+  push:
+    branches:
+      main
+
+permissions:
+  contents: write
+
+jobs:
+  deploy-website:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install and Build
+        run: |
+          go build -C src -o ../compiler
+          mkdir build
+          # Move images.
+          mv assets build/img
+          ./compiler -path references.bib > build/index.html
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          # Must be identical to where we wrote the HTML to.
+          folder: build
