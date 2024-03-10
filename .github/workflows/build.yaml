@@ -8,10 +8,6 @@ permissions:
   contents: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-
   deploy-website:
     runs-on: ubuntu-latest
     steps:
