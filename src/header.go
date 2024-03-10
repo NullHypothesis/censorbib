@@ -1,13 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+package main
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+import (
+	"bytes"
+	"log"
+	"text/template"
+	"time"
+)
+
+const headerTemplate = `
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>The Internet censorship bibliography</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <style type="text/css">
+  <style>
   body {
     font-family: Roboto,Helvetica,sans-serif;
     background: #ddd;
@@ -30,11 +38,8 @@
   ul {
     border-radius: 10px;
     border:1px solid #c0c0c0;
-    background: #efefef;
+    background: #f5f5f5;
     box-shadow: 2px 2px 5px #bbb;
-  }
-  ul.a {
-    list-style-image: url('donate-icon.svg');
   }
   a:link {
     color:#0b61a4;
@@ -92,7 +97,7 @@
   }
   #left-header {
     flex: 4;
-    background: #efefef;
+    background: #f5f5f5;
     margin-right: 0.5em;
     border-radius: 10px;
     border: 1px solid #c0c0c0;
@@ -101,9 +106,9 @@
   }
   #right-header {
     flex: 1;
-    background: #efefef;
+    background: #f5f5f5;
     margin-left: 0.5em;
-    background: #333 url('img/research-power-tools-cover.jpg') no-repeat;
+    background: #333 url('assets/research-power-tools-cover.jpg') no-repeat;
     background-size: 100%;
   }
   .round-shadow {
@@ -151,7 +156,7 @@
 
   <div class="flex-row">
 
-    <div id="left-header" class="flex-column" class="round-shadow">
+    <div id="left-header" class="flex-column round-shadow">
 
       <div id="title-box">
         <h1>Selected Research Papers<br>in Internet Censorship</h1>
@@ -166,12 +171,9 @@
           systems, or by measuring how censorship works.  The icons next to each
           paper make it easy to download, cite, and link to papers.  If you think
           I missed a paper,
-          <a href="https://nymity.ch/contact.txt">let me know</a>.
-          You can sort papers by
-          <a href="year.html">year</a>,
-          <a href="year_reverse.html">reverse year</a> (default),
-          <a href="author.html">author</a>, and
-          <a href="author_reverse.html">reverse author</a>.
+          <a href="https://github.com/NullHypothesis/censorbib">
+          make a pull request
+          </a>.
           Finally, the
           <a href="https://github.com/net4people/bbs/issues">net4people/bbs forum</a>
           has reading groups for many of the papers listed below.
@@ -179,20 +181,12 @@
 
         <div id="censorbib-links">
           <div class="menu-item">
-              <img class="top-icon" src="img/lock-icon.svg" alt="onion service icon"/>
-              <a href="http://putnst3yv7k6vvb3avdqgdutrz3kaufitaiwbjhjox7o3daakr43fhad.onion">Onion service mirror</a>
-          </div>
-          <div class="menu-item">
-            <img class="top-icon" src="img/code-icon.svg" alt="source code icon"/>
+            <img class="top-icon" src="assets/code-icon.svg" alt="source code icon">
             <a href="https://github.com/NullHypothesis/censorbib">CensorBib code</a>
           </div>
           <div class="menu-item">
-            <img class="top-icon" src="img/update-icon.svg" alt="update icon"/>
-            <a href="https://github.com/NullHypothesis/censorbib/commits/master">Last update: 2024-02-25</a>
-          </div>
-          <div class="menu-item">
-            <img class="top-icon" src="img/donate-icon.svg" alt="donate icon"/>
-            <a href="https://nymity.ch/donate.html">Donate</a>
+            <img class="top-icon" src="assets/update-icon.svg" alt="update icon">
+            <a href="https://github.com/NullHypothesis/censorbib/commits/master">Last update: {{.Date}}</a>
           </div>
         </div> <!-- censorbib-links -->
 
@@ -214,6 +208,21 @@
 
     </div> <!-- right-header -->
 
-  </div>
+  </div>`
 
-<body>
+func header() string {
+	tmpl, err := template.New("header").Parse(headerTemplate)
+	if err != nil {
+		log.Fatal(err)
+	}
+	i := struct {
+		Date string
+	}{
+		Date: time.Now().UTC().Format(time.DateOnly),
+	}
+	buf := bytes.NewBufferString("")
+	if err = tmpl.Execute(buf, i); err != nil {
+		log.Fatalf("Error executing template: %v", err)
+	}
+	return buf.String()
+}
