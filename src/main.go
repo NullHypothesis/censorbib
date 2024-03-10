@@ -1,139 +1,29 @@
 package main
 
 import (
+	"bufio"
 	"flag"
 	"fmt"
 	"io"
 	"log"
 	"os"
-	"sort"
+	"regexp"
 	"strings"
 
 	"github.com/nickng/bibtex"
 )
 
-func sortByYear(yearToEntries map[string][]string) []string {
-	keys := make([]string, 0, len(yearToEntries))
-	for k := range yearToEntries {
-		keys = append(keys, k)
-	}
-	sort.Sort(sort.Reverse(sort.StringSlice(keys)))
-	return keys
-}
+// Matches e.g.: @inproceedings{Doe2024a,
+var re = regexp.MustCompile(`@[a-z]*\{([A-Za-z\-]*[0-9]{4}[a-z]),`)
 
-func makeBib(to io.Writer, bib *bibtex.BibTex) {
-	yearToEntries := make(map[string][]string)
+// Map a cite name (e.g., Doe2024a) to its line number in the .bib file. All
+// cite names are unique.
+type entryToLineFunc func(string) int
 
-	for _, entry := range bib.Entries {
-		y := entry.Fields["year"].String()
-		yearToEntries[y] = append(yearToEntries[y], makeBibEntry(entry))
-	}
-
-	sortedYears := sortByYear(yearToEntries)
-	for _, year := range sortedYears {
-		fmt.Fprintf(to, "<ul>")
-		for _, entry := range yearToEntries[year] {
-			fmt.Fprint(to, entry)
-		}
-		fmt.Fprintf(to, "</ul>")
-	}
-}
-
-func makeBibEntry(entry *bibtex.BibEntry) string {
-	s := []string{
-		fmt.Sprintf("<li id='%s'>", entry.CiteName),
-		`<div>`,
-		makeBibEntryTitle(entry),
-		`</div>`,
-		`<div>`,
-		makeBibEntryAuthors(entry),
-		`</div>`,
-		`<span class="other">`,
-		makeBibEntryMisc(entry),
-		`</span>`,
-		`</li>`,
-	}
-	return strings.Join(s, "\n")
-}
-
-func makeBibEntryTitle(entry *bibtex.BibEntry) string {
-
-	// Paper title is on the left side.
-	title := []string{
-		`<span class="paper">`,
-		//fmt.Sprintf("<a name='%s'>", entry.CiteName),
-		decodeTitle(entry.Fields["title"].String()),
-		//`</a>`,
-		`</span>`,
-	}
-	// Icons are on the right side.
-	icons := []string{
-		`<span class="icons">`,
-		fmt.Sprintf("<a href='%s'>", entry.Fields["url"].String()),
-		`<img class="icon" title="Download paper" src="img/pdf-icon.svg" alt="Download icon">`,
-		`</a>`,
-		fmt.Sprintf("<a href='pdf/%s.pdf'>", entry.CiteName),
-		`<img class="icon" title="Download cached paper" src="img/cache-icon.svg" alt="Cached download icon">`,
-		`</a>`,
-		fmt.Sprintf("<a href='bibtex.html#%s'>", entry.CiteName),
-		`<img class="icon" title="Download BibTeX" src="img/bibtex-icon.svg" alt="BibTeX download icon">`,
-		`</a>`,
-		fmt.Sprintf("<a href='#%s'>", entry.CiteName),
-		`<img class="icon" title="Link to paper" src="img/link-icon.svg" alt="Paper link icon">`,
-		`</a>`,
-		`</span>`,
-	}
-	return strings.Join(append(title, icons...), "\n")
-}
-
-func makeBibEntryAuthors(entry *bibtex.BibEntry) string {
-	s := []string{
-		`<span class="author">`,
-		decodeAuthors(entry.Fields["author"].String()),
-		`</span>`,
-	}
-	return strings.Join(s, "\n")
-}
-
-func makeBibEntryMisc(entry *bibtex.BibEntry) string {
-	s := []string{}
-	s = appendIfNotEmpty(s, makeBibEntryVenue(entry))
-	s = appendIfNotEmpty(s, toStr(entry.Fields["year"]))
-	s = appendIfNotEmpty(s, toStr(entry.Fields["publisher"]))
-	return strings.Join(s, ", ")
-}
-
-func makeBibEntryVenue(entry *bibtex.BibEntry) string {
-	var (
-		prefix string
-		bs     bibtex.BibString
-		ok     bool
-	)
-
-	if bs, ok = entry.Fields["booktitle"]; ok {
-		prefix = "In Proc. of: "
-	} else if bs, ok = entry.Fields["journal"]; ok {
-		prefix = "In: "
-	} else {
-		// Some entries are self-published.
-		return ""
-	}
-
-	s := []string{
-		prefix,
-		`<span class="venue">`,
-		decodeProceedings(toStr(bs)),
-		`</span>`,
-	}
-
-	return strings.Join(s, "")
-}
-
-func appendIfNotEmpty(slice []string, s string) []string {
-	if s != "" {
-		return append(slice, s)
-	}
-	return slice
+// Augment bibtex.BibEntry with the entry's line number in the .bib file.
+type bibEntry struct {
+	bibtex.BibEntry
+	lineNum int
 }
 
 func toStr(b bibtex.BibString) string {
@@ -143,24 +33,73 @@ func toStr(b bibtex.BibString) string {
 	return b.String()
 }
 
-func run(w io.Writer, b *bibtex.BibTex) {
-	fmt.Fprint(w, header())
-	makeBib(w, b)
-	fmt.Fprint(w, footer())
-}
-
-func parseBibFile(path string) *bibtex.BibTex {
+func parseBibFile(path string) []bibEntry {
 	file, err := os.Open(path)
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	bib, err := bibtex.Parse(file)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	return bib
+	// Augment our BibTeX entries with their respective line numbers in the .bib
+	// file. This is necessary to create the "Download BibTeX" links.
+	lineOf := buildEntryToLineFunc(path)
+	bibEntries := []bibEntry{}
+	for _, entry := range bib.Entries {
+		bibEntries = append(bibEntries, bibEntry{
+			BibEntry: *entry,
+			lineNum:  lineOf(entry.CiteName),
+		})
+	}
+
+	return bibEntries
+}
+
+func buildEntryToLineFunc(path string) entryToLineFunc {
+	file, err := os.Open(path)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	sc := bufio.NewScanner(file)
+	entryToLine := make(map[string]int)
+	line := 0
+	for sc.Scan() {
+		line++
+		s := sc.Text()
+		if !strings.HasPrefix(s, "@") {
+			continue
+		}
+		entry := parseCiteName(s) // E.g., Doe2024a
+		entryToLine[entry] = line
+	}
+	if err := sc.Err(); err != nil {
+		log.Fatalf("scan file error: %v", err)
+	}
+
+	return func(entry string) int {
+		if line, ok := entryToLine[entry]; ok {
+			return line
+		}
+		log.Fatalf("could not find line number for cite name: %s", entry)
+		return -1
+	}
+}
+
+func parseCiteName(line string) string {
+	matches := re.FindStringSubmatch(line)
+	if len(matches) != 2 {
+		log.Fatalf("failed to extract cite name of: %s", line)
+	}
+	return matches[1]
+}
+
+func run(w io.Writer, bibEntries []bibEntry) {
+	fmt.Fprint(w, header())
+	makeBib(w, bibEntries)
+	fmt.Fprint(w, footer())
 }
 
 func main() {
@@ -170,4 +109,5 @@ func main() {
 		log.Fatal("No path to .bib file provided.")
 	}
 	run(os.Stdout, parseBibFile(*path))
+	log.Println("Successfully created bibliography.")
 }
