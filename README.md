@@ -1,27 +1,16 @@
-Overview
---------
+# CensorBib
 
-This repository contains the BibTeX file and HTML templates that form the
+This repository contains the BibTeX file and corresponding tooling that powers
+the 
 [Internet Censorship Bibliography](https://censorbib.nymity.ch).
+CensorBib is also available via
+[GitHub pages](https://NullHypothesis.github.io/censorbib/)
+in case the primary domain is inaccessible to you.
 
-Build it
---------
+## Contribute
 
-You first need [`bibliogra.py`](https://github.com/NullHypothesis/bibliograpy)
-to turn the BibTeX file into an HTML bibliography.
+To contribute, please create a pull request containing either a new paper or
+fixes for an existing paper.
 
-Then, run the following commands to write the bibliography to `OUTPUT_DIR`.
-
-    $ ./fetch_pdfs.py references.bib OUTPUT_DIR
-    $ bibliogra.py -H header.tpl -F footer.tpl -f references.bib OUTPUT_DIR
-
-Acknowledgements
-----------------
-
-CensorBib uses [Font Awesome](https://fontawesome.com/license/free) icons
-without modification.
-
-Feedback
---------
-
-Contact: Philipp Winter <phw@nymity.ch>
+> [!NOTE]
+> Try to mimic the style of existing BibTeX entries. The parser is strict!
