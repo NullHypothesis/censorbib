@@ -38,7 +38,7 @@ const headerTemplate = `
   ul {
     border-radius: 10px;
     border:1px solid #c0c0c0;
-    background: #efefef;
+    background: #f5f5f5;
     box-shadow: 2px 2px 5px #bbb;
   }
   a:link {
@@ -97,7 +97,7 @@ const headerTemplate = `
   }
   #left-header {
     flex: 4;
-    background: #efefef;
+    background: #f5f5f5;
     margin-right: 0.5em;
     border-radius: 10px;
     border: 1px solid #c0c0c0;
@@ -106,7 +106,7 @@ const headerTemplate = `
   }
   #right-header {
     flex: 1;
-    background: #efefef;
+    background: #f5f5f5;
     margin-left: 0.5em;
     background: #333 url('assets/research-power-tools-cover.jpg') no-repeat;
     background-size: 100%;
