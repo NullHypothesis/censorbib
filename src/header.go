@@ -171,12 +171,9 @@ const headerTemplate = `
           systems, or by measuring how censorship works.  The icons next to each
           paper make it easy to download, cite, and link to papers.  If you think
           I missed a paper,
-          <a href="https://nymity.ch/contact.txt">let me know</a>.
-          You can sort papers by
-          <a href="year.html">year</a>,
-          <a href="year_reverse.html">reverse year</a> (default),
-          <a href="author.html">author</a>, and
-          <a href="author_reverse.html">reverse author</a>.
+          <a href="https://github.com/NullHypothesis/censorbib">
+          make a pull request
+          </a>.
           Finally, the
           <a href="https://github.com/net4people/bbs/issues">net4people/bbs forum</a>
           has reading groups for many of the papers listed below.
