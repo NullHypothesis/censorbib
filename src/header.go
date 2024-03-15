@@ -14,7 +14,10 @@ const headerTemplate = `
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>The Internet censorship bibliography</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" href="assets/favicon-32.png"  sizes="32x32">
+  <link rel="icon" href="assets/favicon-128.png" sizes="128x128">
+  <link rel="icon" href="assets/favicon-180.png" sizes="180x180">
+  <link rel="icon" href="assets/favicon-192.png" sizes="192x192">
   <style>
   body {
     font-family: Roboto,Helvetica,sans-serif;
