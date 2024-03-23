@@ -22,23 +22,23 @@ const headerTemplate = `
   body {
     font-family: Roboto,Helvetica,sans-serif;
     background: #ddd;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
+    margin: 1em auto;
     max-width: 1000px;
   }
   li {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-right: 1em;
+    border-radius: 10px;
+    margin: 0.5em;
+    padding: 0.5em;
   }
   h1 {
-    font-size: 25px;
+    font-size: 2em;
     color: #efefef;
     width: 80%;
     float: left;
   }
   ul {
+    padding: 0.5em;
+    list-style-type: none; /* Disable bullet points */
     border-radius: 10px;
     border:1px solid #c0c0c0;
     background: #f5f5f5;
@@ -57,6 +57,9 @@ const headerTemplate = `
   }
   p {
     margin: 0px;
+  }
+  #container {
+    margin: 1em;
   }
   .author {
     color: #666;
@@ -96,7 +99,7 @@ const headerTemplate = `
     font-size: 12px;
   }
   :target {
-    background-color: #f6ba81;
+    background-color: #ffb772;
   }
   #left-header {
     flex: 4;
@@ -132,6 +135,8 @@ const headerTemplate = `
     background: #333 url('assets/open-access.svg') right/25% no-repeat;
   }
   #censorbib-description {
+    font-size: 1.15em;
+    text-align: justify;
     padding: 1em;
     flex: 5;
   }
@@ -168,15 +173,9 @@ const headerTemplate = `
       <div class="flex-row">
 
         <div id="censorbib-description">
-          CensorBib is an online archive of selected research papers in the field
-          of Internet censorship.  Most papers on CensorBib approach the topic
-          from a technical angle, by proposing designs that circumvent censorship
-          systems, or by measuring how censorship works.  The icons next to each
-          paper make it easy to download, cite, and link to papers.  If you think
-          I missed a paper,
-          <a href="https://github.com/NullHypothesis/censorbib">
-          make a pull request
-          </a>.
+          CensorBib is an archive of selected academic research papers on
+          Internet censorship.  If you think I missed a paper,
+          <a href="https://github.com/NullHypothesis/censorbib">make a pull request</a>.
           Finally, the
           <a href="https://github.com/net4people/bbs/issues">net4people/bbs forum</a>
           has reading groups for many of the papers listed below.
@@ -189,7 +188,7 @@ const headerTemplate = `
           </div>
           <div class="menu-item">
             <img class="top-icon" src="assets/update-icon.svg" alt="update icon">
-            <a href="https://github.com/NullHypothesis/censorbib/commits/master">Last update: {{.Date}}</a>
+            <a href="https://github.com/NullHypothesis/censorbib/commits/master">Updated: {{.Date}}</a>
           </div>
         </div> <!-- censorbib-links -->
 
@@ -204,7 +203,7 @@ const headerTemplate = `
         </div>
 
         <div id="book-info" style="flex: 0 1 auto">
-          Are you a researcher? If so, you may like my book
+          Are you a researcher? You may like my book
           <a href="http://research-power-tools.com">Research Power Tools</a>.
         </div>
       </div>
