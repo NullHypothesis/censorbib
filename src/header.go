@@ -55,6 +55,9 @@ const headerTemplate = `
   a:hover {
     text-decoration:underline;
   }
+  .icons a:hover {
+    text-decoration: none;
+  }
   p {
     margin: 0px;
   }
