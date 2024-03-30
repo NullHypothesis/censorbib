@@ -97,9 +97,11 @@ func parseCiteName(line string) string {
 }
 
 func run(w io.Writer, bibEntries []bibEntry) {
+	fmt.Fprintln(w, "<div id='container'>")
 	fmt.Fprint(w, header())
 	makeBib(w, bibEntries)
 	fmt.Fprint(w, footer())
+	fmt.Fprintln(w, "</div>")
 }
 
 func main() {
