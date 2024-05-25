@@ -75,11 +75,11 @@ func makeBibEntryTitle(entry *bibEntry) string {
 func makeIcons(entry *bibEntry) []string {
 	var icons = []string{`<span class="icons">`}
 
-	// Not all references have a corresponding net4people discussion but if they
-	// do, add an icon.
-	if field, ok := entry.Fields["net4people_url"]; ok {
+	// Not all references have a corresponding discussion (e.g., on net4people)
+	// but if they do, add an icon.
+	if field, ok := entry.Fields["discussion_url"]; ok {
 		s := fmt.Sprintf("<a href='%s'>", field.String()) +
-			`<img class="icon" title="net4people discussion" src="assets/discussion-icon.svg" alt="Discussion icon">` +
+			`<img class="icon" title="Online discussion" src="assets/discussion-icon.svg" alt="Discussion icon">` +
 			`</a>`
 		icons = append(icons, s)
 	}
