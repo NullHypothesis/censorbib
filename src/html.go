@@ -68,8 +68,24 @@ func makeBibEntryTitle(entry *bibEntry) string {
 		`</span>`,
 	}
 	// Icons are on the right side.
-	icons := []string{
-		`<span class="icons">`,
+	icons := makeIcons(entry)
+	return strings.Join(append(title, icons...), "\n")
+}
+
+func makeIcons(entry *bibEntry) []string {
+	var icons = []string{`<span class="icons">`}
+
+	// Not all references have a corresponding net4people discussion but if they
+	// do, add an icon.
+	if field, ok := entry.Fields["net4people_url"]; ok {
+		s := fmt.Sprintf("<a href='%s'>", field.String()) +
+			`<img class="icon" title="net4people discussion" src="assets/discussion-icon.svg" alt="Discussion icon">` +
+			`</a>`
+		icons = append(icons, s)
+	}
+
+	// Add icons that are always present.
+	icons = append(icons, []string{
 		fmt.Sprintf("<a href='%s'>", entry.Fields["url"].String()),
 		`<img class="icon" title="Download paper" src="assets/pdf-icon.svg" alt="Download icon">`,
 		`</a>`,
@@ -82,9 +98,9 @@ func makeBibEntryTitle(entry *bibEntry) string {
 		fmt.Sprintf("<a href='#%s'>", entry.CiteName),
 		`<img class="icon" title="Link to paper" src="assets/link-icon.svg" alt="Paper link icon">`,
 		`</a>`,
-		`</span>`,
-	}
-	return strings.Join(append(title, icons...), "\n")
+	}...)
+
+	return append(icons, `</span>`)
 }
 
 func makeBibEntryAuthors(entry *bibEntry) string {
