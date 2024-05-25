@@ -104,6 +104,9 @@ const headerTemplate = `
   :target {
     background-color: #ffb772;
   }
+  #header {
+    margin: 1em;
+  }
   #left-header {
     flex: 4;
     background: #f5f5f5;
@@ -165,7 +168,7 @@ const headerTemplate = `
 
 <body>
 
-  <div class="flex-row">
+  <div id="header" class="flex-row">
 
     <div id="left-header" class="flex-column round-shadow">
 
