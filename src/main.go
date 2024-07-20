@@ -13,8 +13,9 @@ import (
 	"github.com/nickng/bibtex"
 )
 
-// Matches e.g.: @inproceedings{Doe2024a,
-var re = regexp.MustCompile(`@[a-z]*\{([A-Za-z\-]*[0-9]{4}[a-z]),`)
+// Matches e.g.: @inproceedings{Müller2024a,
+// \p{L}\p{M} matches any letter, including accented characters.
+var re = regexp.MustCompile(`@[a-z]*\{([\"\p{L}\p{M}\-]*[0-9]{4}[a-z]),`)
 
 // Map a cite name (e.g., Doe2024a) to its line number in the .bib file. All
 // cite names are unique.
