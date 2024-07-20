@@ -29,8 +29,18 @@ func isWhitespace(ch rune) bool {
 	return ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r'
 }
 
+func isAccent(ch rune) bool {
+	accents := "äöüßéêçñÁÉÍÓÚáéíóúàèìòùâêîôûãõñÄÖÜ"
+	for _, accent := range accents {
+		if ch == accent {
+			return true
+		}
+	}
+	return false
+}
+
 func isAlpha(ch rune) bool {
-	return ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z')
+	return ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z') || isAccent(ch)
 }
 
 func isDigit(ch rune) bool {
