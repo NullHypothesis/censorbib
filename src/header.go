@@ -84,7 +84,7 @@ const headerTemplate = `
     height: 1em;
     width: 1em;
     display: inline-block;
-    border-radius: 50%;
+    border-radius: 25%;
     transition: background-color 0.3s ease;
     padding: 0.5em;
     overflow: visible;
