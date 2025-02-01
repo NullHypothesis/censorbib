@@ -82,7 +82,16 @@ const headerTemplate = `
   }
   .icon {
     height: 1em;
-    margin-right: 0.5em;
+    width: 1em;
+    display: inline-block;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    padding: 0.5em;
+    overflow: visible;
+  }
+  .icon:hover {
+    background-color: #ffb772;
+    cursor: pointer;
   }
   .icons {
     float: right;
