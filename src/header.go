@@ -20,7 +20,7 @@ const headerTemplate = `
   <link rel="icon" href="assets/favicon-192.png" sizes="192x192">
   <style>
   body {
-    font-family: Roboto,Helvetica,sans-serif;
+    font-family: Roboto, Helvetica, sans-serif;
     background: #ddd;
     margin: 1em auto;
     max-width: 1000px;
@@ -40,20 +40,20 @@ const headerTemplate = `
     padding: 0.5em;
     list-style-type: none; /* Disable bullet points */
     border-radius: 10px;
-    border:1px solid #c0c0c0;
+    border: 1px solid #c0c0c0;
     background: #f5f5f5;
     box-shadow: 2px 2px 5px #bbb;
   }
   a:link {
-    color:#0b61a4;
-    text-decoration:none;
+    color: #0b61a4;
+    text-decoration: none;
   }
   a:visited {
-    color:#033e6b;
-    text-decoration:none;
+    color: #033e6b;
+    text-decoration: none;
   }
   a:hover {
-    text-decoration:underline;
+    text-decoration: underline;
   }
   .icons a:hover {
     text-decoration: none;
@@ -82,7 +82,16 @@ const headerTemplate = `
   }
   .icon {
     height: 1em;
-    margin-right: 0.5em;
+    width: 1em;
+    display: inline-block;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    padding: 0.5em;
+    overflow: visible;
+  }
+  .icon:hover {
+    background-color: #ffb772;
+    cursor: pointer;
   }
   .icons {
     float: right;
@@ -158,10 +167,10 @@ const headerTemplate = `
     color: #efefef;
   }
   #book-info > a:link {
-    color: #d94b7b
+    color: #d94b7b;
   }
   #book-info > a:visited {
-    color: #d94b7b
+    color: #d94b7b;
   }
   </style>
 </head>
