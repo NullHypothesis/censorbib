@@ -19,7 +19,7 @@ func decodeTitle(title string) string {
 		{"'", "’"},       // U+2019
 		{`$\cdot$`, `·`}, // U+00B7.
 	} {
-		title = strings.Replace(title, convert.from, convert.to, -1)
+		title = strings.ReplaceAll(title, convert.from, convert.to)
 	}
 
 	// Get rid of all curly brackets. We're displaying titles without changing
@@ -34,7 +34,7 @@ func decodeAuthors(authors string) string {
 	for _, convert := range []conversion{
 		{"'", "’"},
 	} {
-		authors = strings.Replace(authors, convert.from, convert.to, -1)
+		authors = strings.ReplaceAll(authors, convert.from, convert.to)
 	}
 	// For simplicity, we expect authors to be formatted as "John Doe" instead
 	// of "Doe, John".
@@ -47,9 +47,9 @@ func decodeAuthors(authors string) string {
 
 func decodeProceedings(proceedings string) string {
 	for _, convert := range []conversion{
-		{`\&`, "&amp;"},
+		{`\&`, "&"},
 	} {
-		proceedings = strings.Replace(proceedings, convert.from, convert.to, -1)
+		proceedings = strings.ReplaceAll(proceedings, convert.from, convert.to)
 	}
 	return proceedings
 }
