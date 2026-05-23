@@ -2,8 +2,8 @@ package main
 
 import (
 	"bytes"
+	"html/template"
 	"log"
-	"text/template"
 	"time"
 )
 
@@ -76,6 +76,11 @@ const headerTemplate = `
   .other {
     color: #666;
   }
+  #container mark {
+    background: #ffb772;
+    border-radius: 2px;
+    padding: 0 0.1em;
+  }
   #footer {
     text-align: center;
     line-height: 20px;
@@ -83,7 +88,7 @@ const headerTemplate = `
   .icon {
     height: 1em;
     width: 1em;
-    display: inline-block;
+    display: block;
     border-radius: 25%;
     transition: background-color 0.3s ease;
     padding: 0.5em;
@@ -93,8 +98,21 @@ const headerTemplate = `
     background-color: #ffb772;
     cursor: pointer;
   }
+  .icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+  }
+  a:focus-visible,
+  input:focus-visible {
+    outline: 2px solid #0b61a4;
+    outline-offset: 2px;
+  }
   .icons {
     float: right;
+    display: inline-flex;
+    align-items: center;
   }
   .top-icon {
     height: 1em;
@@ -172,6 +190,112 @@ const headerTemplate = `
   #book-info > a:visited {
     color: #d94b7b;
   }
+  #search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    margin: 1em;
+    padding: 0.75em;
+    background: #f5f5f5;
+    border-radius: 10px;
+    border: 1px solid #c0c0c0;
+    box-shadow: 2px 2px 5px #bbb;
+  }
+  #search-form label {
+    font-weight: bold;
+  }
+  #search-input {
+    flex: 1;
+    min-width: 0;
+    font: inherit;
+    padding: 0.5em 0.75em;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    background: #fff;
+  }
+  #result-count {
+    color: #666;
+    white-space: nowrap;
+  }
+  #no-results {
+    margin: 1em;
+    padding: 1em;
+    text-align: center;
+    color: #666;
+    background: #f5f5f5;
+    border-radius: 10px;
+    border: 1px solid #c0c0c0;
+    box-shadow: 2px 2px 5px #bbb;
+  }
+  #bibtex-modal[hidden] {
+    display: none;
+  }
+  #bibtex-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+  }
+  #bibtex-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+  }
+  #bibtex-dialog {
+    position: relative;
+    max-width: min(760px, calc(100vw - 2em));
+    max-height: calc(100vh - 2em);
+    margin: 1em auto;
+    display: flex;
+    flex-direction: column;
+    background: #f5f5f5;
+    border-radius: 10px;
+    border: 1px solid #c0c0c0;
+    box-shadow: 2px 2px 10px #333;
+  }
+  #bibtex-dialog header {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.75em;
+    border-bottom: 1px solid #c0c0c0;
+  }
+  #bibtex-title {
+    flex: 1;
+    margin: 0;
+    color: #333;
+    font-size: 1.1em;
+  }
+  #bibtex-copy-status {
+    color: #666;
+    min-width: 4.5em;
+    text-align: right;
+  }
+  #bibtex-content {
+    margin: 0;
+    padding: 1em;
+    overflow: auto;
+    white-space: pre-wrap;
+    font-size: 0.9em;
+    line-height: 1.35;
+    background: #fff;
+  }
+  @media (max-width: 720px) {
+    #header,
+    .flex-row {
+      flex-direction: column;
+    }
+    #left-header,
+    #right-header {
+      margin: 0 0 1em 0;
+    }
+    #search-form {
+      align-items: stretch;
+      flex-direction: column;
+    }
+    #result-count {
+      white-space: normal;
+    }
+  }
   </style>
 </head>
 
@@ -227,18 +351,16 @@ const headerTemplate = `
 
   </div>`
 
+var headerTmpl = template.Must(template.New("header").Parse(headerTemplate))
+
 func header() string {
-	tmpl, err := template.New("header").Parse(headerTemplate)
-	if err != nil {
-		log.Fatal(err)
-	}
 	i := struct {
 		Date string
 	}{
 		Date: time.Now().UTC().Format(time.DateOnly),
 	}
-	buf := bytes.NewBufferString("")
-	if err = tmpl.Execute(buf, i); err != nil {
+	buf := new(bytes.Buffer)
+	if err := headerTmpl.Execute(buf, i); err != nil {
 		log.Fatalf("Error executing template: %v", err)
 	}
 	return buf.String()

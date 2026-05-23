@@ -1,7 +1,8 @@
 package main
 
 import (
-	"fmt"
+	"bytes"
+	"html/template"
 	"io"
 	"sort"
 	"strings"
@@ -9,118 +10,96 @@ import (
 	"github.com/nickng/bibtex"
 )
 
-func sortByYear(yearToEntries map[string][]string) []string {
-	keys := make([]string, 0, len(yearToEntries))
-	for k := range yearToEntries {
-		keys = append(keys, k)
-	}
-	sort.Sort(sort.Reverse(sort.StringSlice(keys)))
-	return keys
+type bibEntryView struct {
+	CiteName      string
+	Title         string
+	Authors       string
+	Venue         string
+	VenuePrefix   string
+	HasVenue      bool
+	Year          string
+	HasYear       bool
+	Publisher     string
+	URL           string
+	DiscussionURL string
 }
 
-func appendIfNotEmpty(slice []string, s string) []string {
-	if s != "" {
-		return append(slice, s)
-	}
-	return slice
-}
+var bibEntryTemplate = template.Must(template.New("bib-entry").Parse(`<li id="{{.CiteName}}">
+<div>
+<span class="paper">{{.Title}}</span>
+<span class="icons">
+{{if .DiscussionURL}}<a href="{{.DiscussionURL}}"><img class="icon" title="Online discussion" src="assets/discussion-icon.svg" alt="Discussion icon"></a>{{end}}
+<a href="{{.URL}}"><img class="icon" title="Download paper" src="assets/pdf-icon.svg" alt="Download icon"></a>
+<a href="https://censorbib.nymity.ch/pdf/{{.CiteName}}.pdf"><img class="icon" title="Download cached paper" src="assets/cache-icon.svg" alt="Cached download icon"></a>
+<a href="#bibtex-{{.CiteName}}" class="bibtex-link" data-reference="{{.CiteName}}" title="Show BibTeX" aria-label="Show BibTeX for {{.Title}}"><img class="icon" src="assets/bibtex-icon.svg" alt="BibTeX icon"></a>
+<a href="#{{.CiteName}}"><img class="icon" title="Link to paper" src="assets/link-icon.svg" alt="Paper link icon"></a>
+</span>
+</div>
+<div>
+<span class="author">{{.Authors}}</span>
+</div>
+<span class="other">{{if .HasVenue}}{{.VenuePrefix}}<span class="venue">{{.Venue}}</span>{{end}}{{if .Year}}{{if .HasVenue}}, {{end}}{{.Year}}{{end}}{{if .Publisher}}{{if or .HasVenue .HasYear}}, {{end}}{{.Publisher}}{{end}}</span>
+</li>
+`))
 
 func makeBib(to io.Writer, bibEntries []bibEntry) {
-	yearToEntries := make(map[string][]string)
-
+	previousYear := ""
 	for _, entry := range bibEntries {
-		y := entry.Fields["year"].String()
-		yearToEntries[y] = append(yearToEntries[y], makeBibEntry(&entry))
-	}
-
-	sortedYears := sortByYear(yearToEntries)
-	for _, year := range sortedYears {
-		fmt.Fprintln(to, "<ul>")
-		for _, entry := range yearToEntries[year] {
-			fmt.Fprint(to, entry)
+		year := toStr(entry.Fields["year"])
+		if year != previousYear {
+			if previousYear != "" {
+				mustFprintln(to, "</ul>")
+			}
+			mustFprintf(to, "<ul class=\"year-group\" data-year=\"%s\">\n", template.HTMLEscapeString(year))
+			previousYear = year
 		}
-		fmt.Fprintln(to, "</ul>")
+		mustFprint(to, makeBibEntry(&entry))
+	}
+	if previousYear != "" {
+		mustFprintln(to, "</ul>")
 	}
 }
 
 func makeBibEntry(entry *bibEntry) string {
-	s := []string{
-		fmt.Sprintf("<li id='%s'>", entry.CiteName),
-		`<div>`,
-		makeBibEntryTitle(entry),
-		`</div>`,
-		`<div>`,
-		makeBibEntryAuthors(entry),
-		`</div>`,
-		`<span class="other">`,
-		makeBibEntryMisc(entry),
-		`</span>`,
-		`</li>`,
+	buf := new(bytes.Buffer)
+	if err := bibEntryTemplate.Execute(buf, entryView(entry)); err != nil {
+		panic(err)
 	}
-	return strings.Join(s, "\n")
+	return buf.String()
 }
 
-func makeBibEntryTitle(entry *bibEntry) string {
-	// Paper title is on the left side.
-	title := []string{
-		`<span class="paper">`,
-		decodeTitle(entry.Fields["title"].String()),
-		`</span>`,
+func entryView(entry *bibEntry) bibEntryView {
+	prefix, venue := entryVenueParts(entry)
+	year := toStr(entry.Fields["year"])
+	return bibEntryView{
+		CiteName:      entry.CiteName,
+		Title:         entryTitle(entry),
+		Authors:       entryAuthors(entry),
+		Venue:         venue,
+		VenuePrefix:   prefix,
+		HasVenue:      venue != "",
+		Year:          year,
+		HasYear:       year != "",
+		Publisher:     toStr(entry.Fields["publisher"]),
+		URL:           toStr(entry.Fields["url"]),
+		DiscussionURL: toStr(entry.Fields["discussion_url"]),
 	}
-	// Icons are on the right side.
-	icons := makeIcons(entry)
-	return strings.Join(append(title, icons...), "\n")
 }
 
-func makeIcons(entry *bibEntry) []string {
-	var icons = []string{`<span class="icons">`}
-
-	// Not all references have a corresponding discussion (e.g., on net4people)
-	// but if they do, add an icon.
-	if field, ok := entry.Fields["discussion_url"]; ok {
-		s := fmt.Sprintf("<a href='%s'>", field.String()) +
-			`<img class="icon" title="Online discussion" src="assets/discussion-icon.svg" alt="Discussion icon">` +
-			`</a>`
-		icons = append(icons, s)
-	}
-
-	// Add icons that are always present.
-	icons = append(icons, []string{
-		fmt.Sprintf("<a href='%s'>", entry.Fields["url"].String()),
-		`<img class="icon" title="Download paper" src="assets/pdf-icon.svg" alt="Download icon">`,
-		`</a>`,
-		fmt.Sprintf("<a href='https://censorbib.nymity.ch/pdf/%s.pdf'>", entry.CiteName),
-		`<img class="icon" title="Download cached paper" src="assets/cache-icon.svg" alt="Cached download icon">`,
-		`</a>`,
-		fmt.Sprintf("<a href='https://github.com/NullHypothesis/censorbib/blob/master/references.bib#L%d'>", entry.lineNum),
-		`<img class="icon" title="Download BibTeX" src="assets/bibtex-icon.svg" alt="BibTeX download icon">`,
-		`</a>`,
-		fmt.Sprintf("<a href='#%s'>", entry.CiteName),
-		`<img class="icon" title="Link to paper" src="assets/link-icon.svg" alt="Paper link icon">`,
-		`</a>`,
-	}...)
-
-	return append(icons, `</span>`)
+func entryTitle(entry *bibEntry) string {
+	return decodeTitle(toStr(entry.Fields["title"]))
 }
 
-func makeBibEntryAuthors(entry *bibEntry) string {
-	s := []string{
-		`<span class="author">`,
-		decodeAuthors(entry.Fields["author"].String()),
-		`</span>`,
-	}
-	return strings.Join(s, "\n")
+func entryAuthors(entry *bibEntry) string {
+	return decodeAuthors(toStr(entry.Fields["author"]))
 }
 
-func makeBibEntryMisc(entry *bibEntry) string {
-	s := []string{}
-	s = appendIfNotEmpty(s, makeBibEntryVenue(entry))
-	s = appendIfNotEmpty(s, toStr(entry.Fields["year"]))
-	s = appendIfNotEmpty(s, toStr(entry.Fields["publisher"]))
-	return strings.Join(s, ", ")
+func entryVenue(entry *bibEntry) string {
+	_, venue := entryVenueParts(entry)
+	return venue
 }
 
-func makeBibEntryVenue(entry *bibEntry) string {
+func entryVenueParts(entry *bibEntry) (string, string) {
 	var (
 		prefix string
 		bs     bibtex.BibString
@@ -132,15 +111,46 @@ func makeBibEntryVenue(entry *bibEntry) string {
 	} else if bs, ok = entry.Fields["journal"]; ok {
 		prefix = "In: "
 	} else {
-		return "" // Some entries are self-published.
+		return "", "" // Some entries are self-published.
 	}
 
-	s := []string{
-		prefix,
-		`<span class="venue">`,
-		decodeProceedings(toStr(bs)),
-		`</span>`,
-	}
+	return prefix, decodeProceedings(toStr(bs))
+}
 
-	return strings.Join(s, "")
+func sortBibEntries(bibEntries []bibEntry) {
+	sort.SliceStable(bibEntries, func(i, j int) bool {
+		a := &bibEntries[i]
+		b := &bibEntries[j]
+		for _, cmp := range []struct {
+			left       string
+			right      string
+			descending bool
+		}{
+			{toStr(a.Fields["year"]), toStr(b.Fields["year"]), true},
+			{entryVenue(a), entryVenue(b), false},
+			{entryTitle(a), entryTitle(b), false},
+			{a.CiteName, b.CiteName, false},
+		} {
+			left := strings.ToLower(cmp.left)
+			right := strings.ToLower(cmp.right)
+			if left == right {
+				continue
+			}
+			if cmp.descending {
+				return left > right
+			}
+			return left < right
+		}
+		return false
+	})
+}
+
+func makeSearchBox(to io.Writer, count int) {
+	mustFprintf(to, `<form id="search-form" role="search" action="">
+  <label for="search-input">Search</label>
+  <input id="search-input" type="search" name="q" autocomplete="off" placeholder="Title, author, venue, year, publisher, or cite name">
+  <span id="result-count" aria-live="polite">%d papers</span>
+</form>
+<div id="no-results" hidden>No matches.</div>
+`, count)
 }
