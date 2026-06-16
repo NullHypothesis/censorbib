@@ -30,7 +30,7 @@ var bibEntryTemplate = template.Must(template.New("bib-entry").Parse(`<li id="{{
 <span class="icons">
 {{if .DiscussionURL}}<a href="{{.DiscussionURL}}"><img class="icon" title="Online discussion" src="assets/discussion-icon.svg" alt="Discussion icon"></a>{{end}}
 <a href="{{.URL}}"><img class="icon" title="Download paper" src="assets/pdf-icon.svg" alt="Download icon"></a>
-<a href="https://censorbib.nymity.ch/pdf/{{.CiteName}}.pdf"><img class="icon" title="Download cached paper" src="assets/cache-icon.svg" alt="Cached download icon"></a>
+<a href="https://censorbib-papers.t3.tigrisfiles.io/{{.CiteName}}.pdf"><img class="icon" title="Download cached paper" src="assets/cache-icon.svg" alt="Cached download icon"></a>
 <a href="#bibtex-{{.CiteName}}" class="bibtex-link" data-reference="{{.CiteName}}" title="Show BibTeX" aria-label="Show BibTeX for {{.Title}}"><img class="icon" src="assets/bibtex-icon.svg" alt="BibTeX icon"></a>
 <a href="#{{.CiteName}}"><img class="icon" title="Link to paper" src="assets/link-icon.svg" alt="Paper link icon"></a>
 </span>
