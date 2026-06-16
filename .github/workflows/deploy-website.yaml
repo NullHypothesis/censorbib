@@ -4,9 +4,6 @@ on:
     branches:
       master
 
-permissions:
-  contents: write
-
 jobs:
   deploy-website:
     runs-on: ubuntu-latest
@@ -14,15 +11,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install and Build
-        run: |
-          go build -C src -o ../compiler
-          mkdir build
-          mv assets build
-          ./compiler -path references.bib > build/index.html
+      - name: Set up flyctl
+        uses: superfly/flyctl-actions/setup-flyctl@master
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          # Must be identical to where we wrote the HTML to.
-          folder: build
+      - name: Deploy to fly.io
+        run: flyctl deploy
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
