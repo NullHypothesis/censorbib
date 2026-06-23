@@ -7,5 +7,6 @@ RUN go build -C src -mod=vendor -o ../compiler
 RUN ./compiler -path references.bib > index.html
 
 FROM nginx:alpine
+COPY config/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/assets /usr/share/nginx/html/assets
 COPY --from=builder /app/index.html /usr/share/nginx/html/index.html
