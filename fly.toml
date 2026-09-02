@@ -16,6 +16,13 @@ primary_region = 'ord'
   min_machines_running = 0
   processes = ['app']
 
+  [[http_service.checks]]
+    grace_period = '3s'
+    interval = '1m'
+    timeout = '5s'
+    method = 'GET'
+    path = '/'
+
 [[vm]]
   memory = '256mb'
   cpus = 1
