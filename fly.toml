@@ -21,7 +21,7 @@ primary_region = 'ord'
     interval = '1m'
     timeout = '5s'
     method = 'GET'
-    path = '/'
+    path = '/healthz'
 
 [[vm]]
   memory = '256mb'
