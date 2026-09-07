@@ -70,7 +70,20 @@ const headerTemplate = `
   .venue {
     font-style: italic;
   }
+  .paper-entry {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 0.75em;
+  }
+  .paper-entry > :not(.icons) {
+    grid-column: 1;
+  }
+  .paper-entry[hidden] {
+    display: none;
+  }
   .paper {
+    min-width: 0;
+    overflow-wrap: anywhere;
     font-weight: bold;
   }
   .other {
@@ -110,7 +123,9 @@ const headerTemplate = `
     outline-offset: 2px;
   }
   .icons {
-    float: right;
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: start;
     display: inline-flex;
     align-items: center;
   }
@@ -280,6 +295,16 @@ const headerTemplate = `
     background: #fff;
   }
   @media (max-width: 720px) {
+    .paper-entry {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .icons {
+      grid-column: 1;
+      grid-row: 4;
+      margin-top: 0.25em;
+      flex-wrap: wrap;
+      max-width: 100%;
+    }
     #header,
     .flex-row {
       flex-direction: column;
