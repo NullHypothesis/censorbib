@@ -24,8 +24,7 @@ type bibEntryView struct {
 	DiscussionURL string
 }
 
-var bibEntryTemplate = template.Must(template.New("bib-entry").Parse(`<li id="{{.CiteName}}">
-<div>
+var bibEntryTemplate = template.Must(template.New("bib-entry").Parse(`<li id="{{.CiteName}}" class="paper-entry">
 <span class="paper">{{.Title}}</span>
 <span class="icons">
 {{if .DiscussionURL}}<a href="{{.DiscussionURL}}"><img class="icon" title="Online discussion" src="assets/discussion-icon.svg" alt="Discussion icon"></a>{{end}}
@@ -34,7 +33,6 @@ var bibEntryTemplate = template.Must(template.New("bib-entry").Parse(`<li id="{{
 <a href="#bibtex-{{.CiteName}}" class="bibtex-link" data-reference="{{.CiteName}}" title="Show BibTeX" aria-label="Show BibTeX for {{.Title}}"><img class="icon" src="assets/bibtex-icon.svg" alt="BibTeX icon"></a>
 <a href="#{{.CiteName}}"><img class="icon" title="Link to paper" src="assets/link-icon.svg" alt="Paper link icon"></a>
 </span>
-</div>
 <div>
 <span class="author">{{.Authors}}</span>
 </div>
