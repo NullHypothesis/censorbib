@@ -13,15 +13,59 @@ const headerTemplate = `
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="color-scheme" content="light dark">
   <title>The Internet censorship bibliography</title>
   <link rel="icon" href="assets/favicon-32.png"  sizes="32x32">
   <link rel="icon" href="assets/favicon-128.png" sizes="128x128">
   <link rel="icon" href="assets/favicon-180.png" sizes="180x180">
   <link rel="icon" href="assets/favicon-192.png" sizes="192x192">
   <style>
+  :root {
+    color-scheme: light dark;
+    --page: #ddd;
+    --surface: #f5f5f5;
+    --text: #222;
+    --muted: #666;
+    --border: #c0c0c0;
+    --shadow: #bbb;
+    --link: #0b61a4;
+    --visited: #033e6b;
+    --highlight: #ffb772;
+    --mark-text: #222;
+    --input: #fff;
+    --input-border: #aaa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #171c22;
+      --surface: #222a33;
+      --text: #e7e5df;
+      --muted: #b2bac4;
+      --border: #404c5a;
+      --shadow: #101419;
+      --link: #91c5ed;
+      --visited: #c4b2df;
+      --highlight: #493a28;
+      --mark-text: #f5dfb8;
+      --input: #1b222a;
+      --input-border: #596779;
+    }
+    .icon,
+    .top-icon {
+      filter: invert(88%);
+    }
+    .icons .icon:hover {
+      background-color: transparent;
+    }
+    .icons a:hover {
+      background-color: var(--highlight);
+      border-radius: 25%;
+    }
+  }
   body {
     font-family: Roboto, Helvetica, sans-serif;
-    background: #ddd;
+    background: var(--page);
+    color: var(--text);
     margin: 1em auto;
     max-width: 1000px;
   }
@@ -40,16 +84,16 @@ const headerTemplate = `
     padding: 0.5em;
     list-style-type: none; /* Disable bullet points */
     border-radius: 10px;
-    border: 1px solid #c0c0c0;
-    background: #f5f5f5;
-    box-shadow: 2px 2px 5px #bbb;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    box-shadow: 2px 2px 5px var(--shadow);
   }
   a:link {
-    color: #0b61a4;
+    color: var(--link);
     text-decoration: none;
   }
   a:visited {
-    color: #033e6b;
+    color: var(--visited);
     text-decoration: none;
   }
   a:hover {
@@ -65,7 +109,7 @@ const headerTemplate = `
     margin: 1em;
   }
   .author {
-    color: #666;
+    color: var(--muted);
   }
   .venue {
     font-style: italic;
@@ -87,10 +131,11 @@ const headerTemplate = `
     font-weight: bold;
   }
   .other {
-    color: #666;
+    color: var(--muted);
   }
   #container mark {
-    background: #ffb772;
+    color: var(--mark-text);
+    background: var(--highlight);
     border-radius: 2px;
     padding: 0 0.1em;
   }
@@ -108,7 +153,7 @@ const headerTemplate = `
     overflow: visible;
   }
   .icon:hover {
-    background-color: #ffb772;
+    background-color: var(--highlight);
     cursor: pointer;
   }
   .icons a {
@@ -118,8 +163,9 @@ const headerTemplate = `
     line-height: 0;
   }
   a:focus-visible,
-  input:focus-visible {
-    outline: 2px solid #0b61a4;
+  input:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--link);
     outline-offset: 2px;
   }
   .icons {
@@ -144,31 +190,31 @@ const headerTemplate = `
     font-size: 12px;
   }
   :target {
-    background-color: #ffb772;
+    background-color: var(--highlight);
   }
   #header {
     margin: 1em;
   }
   #left-header {
     flex: 4;
-    background: #f5f5f5;
+    background: var(--surface);
     margin-right: 0.5em;
     border-radius: 10px;
-    border: 1px solid #c0c0c0;
-    box-shadow: 2px 2px 5px #bbb;
+    border: 1px solid var(--border);
+    box-shadow: 2px 2px 5px var(--shadow);
     overflow: hidden; /* For child elements to inherit rounded corners. */
   }
   #right-header {
     flex: 1;
-    background: #f5f5f5;
+    background: var(--surface);
     margin-left: 0.5em;
     background: #333 url('assets/research-power-tools-cover.jpg') no-repeat;
     background-size: 100%;
   }
   .round-shadow {
     border-radius: 10px;
-    border: 1px solid #c0c0c0;
-    box-shadow: 2px 2px 5px #bbb;
+    border: 1px solid var(--border);
+    box-shadow: 2px 2px 5px var(--shadow);
     overflow: hidden; /* For child elements to inherit rounded corners. */
   }
   .flex-row {
@@ -211,10 +257,10 @@ const headerTemplate = `
     gap: 0.75em;
     margin: 1em;
     padding: 0.75em;
-    background: #f5f5f5;
+    background: var(--surface);
     border-radius: 10px;
-    border: 1px solid #c0c0c0;
-    box-shadow: 2px 2px 5px #bbb;
+    border: 1px solid var(--border);
+    box-shadow: 2px 2px 5px var(--shadow);
   }
   #search-form label {
     font-weight: bold;
@@ -224,23 +270,24 @@ const headerTemplate = `
     min-width: 0;
     font: inherit;
     padding: 0.5em 0.75em;
-    border: 1px solid #aaa;
+    border: 1px solid var(--input-border);
     border-radius: 6px;
-    background: #fff;
+    background: var(--input);
+    color: var(--text);
   }
   #result-count {
-    color: #666;
+    color: var(--muted);
     white-space: nowrap;
   }
   #no-results {
     margin: 1em;
     padding: 1em;
     text-align: center;
-    color: #666;
-    background: #f5f5f5;
+    color: var(--muted);
+    background: var(--surface);
     border-radius: 10px;
-    border: 1px solid #c0c0c0;
-    box-shadow: 2px 2px 5px #bbb;
+    border: 1px solid var(--border);
+    box-shadow: 2px 2px 5px var(--shadow);
   }
   #bibtex-modal[hidden] {
     display: none;
@@ -262,9 +309,9 @@ const headerTemplate = `
     margin: 1em auto;
     display: flex;
     flex-direction: column;
-    background: #f5f5f5;
+    background: var(--surface);
     border-radius: 10px;
-    border: 1px solid #c0c0c0;
+    border: 1px solid var(--border);
     box-shadow: 2px 2px 10px #333;
   }
   #bibtex-dialog header {
@@ -272,16 +319,16 @@ const headerTemplate = `
     align-items: center;
     gap: 0.5em;
     padding: 0.75em;
-    border-bottom: 1px solid #c0c0c0;
+    border-bottom: 1px solid var(--border);
   }
   #bibtex-title {
     flex: 1;
     margin: 0;
-    color: #333;
+    color: var(--text);
     font-size: 1.1em;
   }
   #bibtex-copy-status {
-    color: #666;
+    color: var(--muted);
     min-width: 4.5em;
     text-align: right;
   }
@@ -292,7 +339,14 @@ const headerTemplate = `
     white-space: pre-wrap;
     font-size: 0.9em;
     line-height: 1.35;
-    background: #fff;
+    background: var(--input);
+    color: var(--text);
+  }
+  @media (prefers-color-scheme: dark) {
+    #book-info > a:link,
+    #book-info > a:visited {
+      color: #efa5bd;
+    }
   }
   @media (max-width: 720px) {
     .paper-entry {
